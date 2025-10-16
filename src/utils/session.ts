@@ -1,4 +1,4 @@
-import { randomBytes } from 'crypto';
+import { crypto } from "https://deno.land/std@0.208.0/crypto/mod.ts";
 
 interface Session {
   id: string;
@@ -11,8 +11,10 @@ export class SessionManager {
   private sessions: Map<string, Session> = new Map();
   private readonly sessionDuration = 24 * 60 * 60 * 1000; // 24 hours
 
-  createSession(userId: string): string {
-    const sessionId = randomBytes(32).toString('hex');
+   createSession(userId: string): string {
+     const array = new Uint8Array(32);
+     crypto.getRandomValues(array);
+     const sessionId = Array.from(array, byte => byte.toString(16).padStart(2, '0')).join('');
     const session: Session = {
       id: sessionId,
       userId,

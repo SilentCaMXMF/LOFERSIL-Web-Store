@@ -5,9 +5,9 @@
     "types": ["deno"]
   },
   "tasks": {
-    "start": "deno run --allow-net --allow-env --allow-read --unstable src/main.ts",
-    "dev": "deno run --watch --allow-net --allow-env --allow-read --unstable src/main.ts",
-    "test": "deno test --allow-net --allow-env --allow-read --allow-import --unstable",
+    "start": "deno run --allow-net --allow-env --allow-read --unstable --unstable-kv src/main.ts",
+    "dev": "deno run --watch --allow-net --allow-env --allow-read --unstable --unstable-kv src/main.ts",
+    "test": "deno test --allow-net --allow-env --allow-read --allow-import --unstable --unstable-kv",
     "check": "deno check --unstable src/**/*.ts",
     "cache": "deno cache --reload src/deps.ts"
   },

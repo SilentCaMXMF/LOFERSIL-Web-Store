@@ -1,7 +1,4 @@
 import { Handlers } from "$fresh/server.ts";
-import { hashPassword } from "../utils/auth.ts";
-import { createUser, getUserByEmail } from "../utils/db.ts";
-import { User } from "../types/user.ts";
 
 export const handler: Handlers = {
   async POST(req) {
@@ -10,27 +7,20 @@ export const handler: Handlers = {
     const password = form.get("password") as string;
     const confirmPassword = form.get("confirmPassword") as string;
 
-    if (password !== confirmPassword) {
-      return new Response("Passwords do not match", { status: 400 });
+    // Proxy to backend
+    const backendUrl = "http://localhost:8000/auth/register";
+    const response = await fetch(backendUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({ email, password, confirmPassword }),
+    });
+
+    if (!response.ok) {
+      return new Response(await response.text(), { status: response.status });
     }
 
-    const existingUser = await getUserByEmail(email);
-    if (existingUser) {
-      return new Response("User already exists", { status: 400 });
-    }
-
-    const hashedPassword = await hashPassword(password);
-    const user: User = {
-      id: crypto.randomUUID(),
-      email,
-      password: hashedPassword,
-      role: "customer",
-      createdAt: new Date(),
-    };
-
-    await createUser(user);
-
-    return new Response("Registration successful", { status: 200 });
+    const result = await response.json();
+    return new Response(result.message, { status: 200 });
   },
 };
 

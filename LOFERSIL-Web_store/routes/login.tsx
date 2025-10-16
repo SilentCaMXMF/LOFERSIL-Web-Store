@@ -1,7 +1,4 @@
 import { Handlers } from "$fresh/server.ts";
-import { verifyPassword } from "../utils/auth.ts";
-import { getUserByEmail } from "../utils/db.ts";
-import { createSession } from "../utils/session.ts";
 
 export const handler: Handlers = {
   async POST(req) {
@@ -9,25 +6,23 @@ export const handler: Handlers = {
     const email = form.get("email") as string;
     const password = form.get("password") as string;
 
-    const user = await getUserByEmail(email);
-    if (!user) {
-      return new Response("Invalid credentials", { status: 401 });
+    // Proxy to backend
+    const backendUrl = "http://localhost:8000/auth/login";
+    const response = await fetch(backendUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams({ email, password }),
+    });
+
+    if (!response.ok) {
+      return new Response(await response.text(), { status: response.status });
     }
 
-    const isValid = await verifyPassword(password, user.password);
-    if (!isValid) {
-      return new Response("Invalid credentials", { status: 401 });
-    }
-
-    const sessionId = await createSession(user.id, user.email, user.role);
-    const remember = form.get("remember") === "on";
-    const maxAge = remember ? 2592000 : 604800; // 30 days or 7 days
-    return new Response("Login successful", {
+    const result = await response.json();
+    const setCookie = response.headers.get("Set-Cookie");
+    return new Response(result.message, {
       status: 200,
-      headers: {
-        "Set-Cookie":
-          `session=${sessionId}; HttpOnly; Path=/; Max-Age=${maxAge}`,
-      },
+      headers: setCookie ? { "Set-Cookie": setCookie } : {},
     });
   },
 };
