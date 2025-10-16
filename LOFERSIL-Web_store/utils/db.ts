@@ -34,3 +34,22 @@ export async function getAllProducts(): Promise<Product[]> {
 export async function createProduct(product: Product): Promise<void> {
   await kv.set(["products", product.id], product);
 }
+
+// Add to utils/db.ts
+export async function getProductsPaginated(
+  page: number,
+  limit: number
+): Promise<{ products: Product[]; total: number }> {
+  const offset = (page - 1) * limit;
+  const products: Product[] = [];
+  let total = 0;
+  
+  for await (const entry of kv.list({ prefix: ["products"] })) {
+    total++;
+    if (total > offset && products.length < limit) {
+      products.push(entry.value as Product);
+    }
+  }
+  
+  return { products, total };
+}
