@@ -24,15 +24,6 @@
        <h2>Bem-vindo!</h2>
        <p>Sua loja única para essenciais de escritório.</p>
      </section>
-
-     <section id="gallery">
-       <h3>Loja</h3>
-        <div class="gallery">
-          <img src="/static/images/frente-loja.jpg" alt="Frente da loja">
-          <img src="/static/images/interior-funcionario.jpg" alt="Interior com funcionário">
-          <img src="/static/images/interior.jpg" alt="Interior da loja">
-        </div>
-     </section>
  
      <section id="hours">
        <h3>Horários da Loja</h3>

@@ -1,6 +1,4 @@
-import { Context } from "../deps.ts"; // remove State import
-import type { Middleware } from "../types/middleware.ts";
-import type { State } from "../types/state.ts";
+import { Context, State } from "../deps.ts";
 
 export type Middleware = (
   context: Context<State>,

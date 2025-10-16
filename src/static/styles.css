@@ -271,35 +271,8 @@ footer {
   text-align: center;
 }
 
- /* Gallery Styles */
- .gallery {
-   display: flex;
-   justify-content: space-around;
-   flex-wrap: wrap;
-   gap: 20px;
- }
-
- .gallery img {
-   width: 30%;
-   max-width: 300px;
-   height: auto;
-   border-radius: 8px;
-   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-   transition: transform 0.3s;
- }
-
- .gallery img:hover {
-   transform: scale(1.05);
- }
-
- @media (max-width: 768px) {
-   .gallery img {
-     width: 100%;
-   }
- }
-
- /* Responsive Design */
- @media (max-width: 768px) {
+/* Responsive Design */
+@media (max-width: 768px) {
   .store-name {
     font-size: 2rem;
   }
