@@ -1,6 +1,10 @@
-import { Context } from "../deps.ts";
+import { Context, State } from "../deps.ts";
+import type { Middleware } from "../types/middleware.ts";
 
-export const loggerMiddleware = async (ctx: Context, next: () => Promise<void>) => {
+export const loggerMiddleware: Middleware = async (
+  ctx: Context<State>,
+  next: () => Promise<unknown>
+) => {
   const start = Date.now();
   await next();
   const ms = Date.now() - start;
