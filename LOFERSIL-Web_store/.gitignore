@@ -1,11 +1,36 @@
-# dotenv environment variable files
+# Environment variables
 .env
 .env.local
 
-# Fresh build directory
+# Build & runtime artifacts
 _fresh/
-# npm dependencies
-node_modules/
+dist/
+.cache/
+tmp/
+*.log
 
-# macOS system files
+# Deno cache (just in case)
+deno_dir/
+
+# Node (if ever used for tooling)
+node_modules/
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# OS and editor junk
 .DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Codespaces / VSCode
+.vscode/
+.history/
+.devcontainer/
+
+# Dependency lock files (optional for pure Deno)
+package.json
+
+# Uploaded media or assets (if generated dynamically)
+uploads/
