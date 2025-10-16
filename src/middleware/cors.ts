@@ -1,6 +1,6 @@
-import cors from "cors";
+import { oakCors } from "../deps.ts";
 
-export const corsMiddleware = cors({
+export const corsMiddleware = oakCors({
   origin: ["http://localhost:3000"],
   methods: ["GET", "POST", "PUT", "DELETE"],
   allowedHeaders: ["Content-Type", "Authorization"],
