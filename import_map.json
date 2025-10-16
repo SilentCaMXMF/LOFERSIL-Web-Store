@@ -1,6 +1,7 @@
 {
   "imports": {
-    "@oak/": "https://deno.land/x/oak@v17.1.0/"
+    "@oak/": "https://deno.land/x/oak@v17.1.0/",
+    "eta/": "https://deno.land/x/eta@v3.0.3/"
   }
 }
 

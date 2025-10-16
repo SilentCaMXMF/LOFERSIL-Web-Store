@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Office Supply Shop</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Office Supply Shop</h1>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/about">About Us</a>
+      <a href="/contact">Contact</a>
+      <span id="user-section">
+        <a href="/login">Login</a>
+      </span>
+    </nav>
+  </header>
+
+  <main>
+    <section id="info">
+      <h2>Welcome!</h2>
+      <p>Your one-stop shop for office essentials.</p>
+    </section>
+
+    <section id="hours">
+      <h3>Store Hours</h3>
+      <p>Mon–Fri: 9:00–18:00<br>Sat: 10:00–14:00</p>
+    </section>
+
+    <section id="location">
+      <h3>Location</h3>
+      <p>123 Main Street, Prague</p>
+    </section>
+
+    <section id="about">
+      <h3>About Us</h3>
+      <p>We provide quality office supplies at great prices since 2005.</p>
+    </section>
+
+    <section id="contact">
+      <h3>Contact</h3>
+      <p>Email: contact@officesupplyshop.com<br>Phone: +420 123 456 789</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2025 Office Supply Shop</p>
+  </footer>
+</body>
+</html>
