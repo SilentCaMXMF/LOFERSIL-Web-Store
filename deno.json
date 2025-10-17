@@ -1,0 +1,46 @@
+{
+  "tasks": {
+    "start": "deno run -A --unstable-kv --watch=static/,routes/ dev.ts",
+    "dev": "deno run --watch --allow-net --allow-env --allow-read --allow-import --unstable-kv src/main.ts",
+    "build": "deno run -A --unstable-kv dev.ts build",
+    "preview": "deno run -A --unstable-kv main.ts",
+    "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
+    "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable-kv -A -",
+    "manifest": "deno task cli manifest $(pwd)",
+    "update": "deno run -A -r https://fresh.deno.dev/update .",
+    "backend": "deno run --watch --allow-net --allow-env --allow-read --allow-import --unstable-kv src/main.ts",
+    "test": "deno test --allow-net --allow-env --allow-read --allow-import --unstable-kv",
+    "cache": "deno cache --reload src/deps.ts",
+    "tui": "OPENCODE_MCP_CONFIG=.opencode/mcp.config.json opencode --config .opencode/config.yaml"
+  },
+  "fmt": {
+    "include": ["src/"],
+    "lineWidth": 100,
+    "indentWidth": 2,
+    "singleQuote": true
+  },
+  "lint": {
+    "rules": {
+      "tags": [
+        "fresh",
+        "recommended"
+      ]
+    }
+  },
+  "exclude": [
+    "**/_fresh/*"
+  ],
+  "unstable": ["kv"],
+  "imports": {
+    "$fresh/": "https://deno.land/x/fresh@1.7.3/",
+    "preact": "https://esm.sh/preact@10.22.0",
+    "preact/": "https://esm.sh/preact@10.22.0/",
+    "@preact/signals": "https://esm.sh/*@preact/signals@1.2.2",
+    "@preact/signals-core": "https://esm.sh/*@preact/signals-core@1.5.1",
+    "$std/": "https://deno.land/std@0.216.0/"
+  },
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "jsxImportSource": "preact"
+  }
+}

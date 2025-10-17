@@ -18,7 +18,7 @@ const sessionManager = new SessionManager();
 
 // Configure Eta
 configure({
-  views: join(Deno.cwd(), "src", "templates"),
+  views: join(new URL(".", import.meta.url).pathname, "templates"),
   cache: true,
   useWith: true
 });
@@ -36,7 +36,7 @@ app.use(oakCors());
 app.use(async (ctx: Context, next) => {
   try {
     await ctx.send({
-      root: join(Deno.cwd(), "src", "static"),
+      root: join(new URL(".", import.meta.url).pathname, "public"),
       index: "index.html",
     });
   } catch (error) {

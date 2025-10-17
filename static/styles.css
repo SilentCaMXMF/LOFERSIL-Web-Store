@@ -18,15 +18,19 @@ code {
     "Courier New", monospace;
   font-size: 1em;
 }
-img,
-svg {
-  display: block;
-}
-img,
-video {
-  max-width: 100%;
-  height: auto;
-}
+ img,
+ svg {
+   display: block;
+   max-width: 100%;
+   height: auto;
+   opacity: 1;
+   visibility: visible;
+ }
+ img,
+ video {
+   max-width: 100%;
+   height: auto;
+ }
 
 html {
   line-height: 1.5;
@@ -172,29 +176,36 @@ html {
      }
    }
 
-   @layer components {
-     .btn {
-       @apply px-4 py-2 rounded font-medium transition-colors;
-     }
-     .btn-primary {
-       @apply bg-blue-600 text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300;
-     }
-     .btn-secondary {
-       @apply bg-green-600 text-white hover:bg-green-700 focus:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300;
-     }
-     .hero {
-       @apply bg-gradient-to-br from-blue-600 to-green-600 text-white;
-     }
-     .card {
-       @apply bg-white rounded-lg shadow-lg p-6 transition-shadow hover:shadow-xl;
-     }
-     .section {
-       @apply py-16 px-4;
-     }
-     .grid-container {
-       @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
-     }
-   }
+    @layer components {
+      .btn {
+        @apply px-4 py-2 rounded font-medium transition-colors;
+      }
+      .btn-primary {
+        @apply bg-blue-600 text-white hover:bg-blue-700 focus:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300;
+      }
+      .btn-secondary {
+        @apply bg-green-600 text-white hover:bg-green-700 focus:bg-green-700 focus:outline-none focus:ring-2 focus:ring-green-300;
+      }
+      .hero {
+        @apply bg-gradient-to-br from-blue-600 to-green-600 text-white;
+        background-image: none; /* Remove background image to avoid conflicts */
+      }
+      .card {
+        @apply bg-white rounded-lg shadow-lg p-6 transition-shadow hover:shadow-xl;
+      }
+      .section {
+        @apply py-16 px-4;
+      }
+      .grid-container {
+        @apply grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8;
+      }
+      .image-container {
+        @apply flex justify-center items-center;
+      }
+      .image {
+        @apply rounded-lg shadow-md transition-transform hover:scale-105;
+      }
+    }
 
 
 
