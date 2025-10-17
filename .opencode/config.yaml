@@ -1,0 +1,48 @@
+project:
+  name: "LOFERSIL Web Store"
+  runtime: "deno"
+  framework: "fresh"
+  language: "typescript"
+  enforce_deno_only: true
+
+agent:
+  model: "code-supernova-001"
+  mode: "developer"
+  init_prompt_path: "./AGENTS.md"
+  startup_message: |
+    🦕 Welcome to the LOFERSIL Deno workspace!
+    You are working in a Deno 2.x environment with Fresh + Preact.
+    Follow Deno-only rules, use URL imports, and never invoke Node.js utilities.
+    Key commands: 'deno task dev' to start dev server, 'deno test --allow-net --allow-env --allow-read --allow-import --unstable --unstable-kv' for tests, 'deno lint' for linting, 'deno fmt' for formatting, 'deno check --unstable src/**/*.ts' for type checking.
+    Ensure all code adheres to Deno best practices, Fresh framework conventions, and AGENTS.md guidelines (e.g., 2-space indent, single quotes, no comments unless requested).
+    Use Figma MCP to work on styles and layouts.
+  constraints:
+    max_tokens: 8000
+    response_time: "10s"
+    enforce_deno_imports: true
+    no_hardcoded_secrets: true
+  tools:
+    - name: "deno_cli"
+      description: "Execute Deno CLI commands for project management, development, and testing."
+    - name: "figma_mcp"
+      description: "Access and manipulate design assets from Figma for the LOFERSIL project."
+    - name: "file_ops"
+      description: "Read, edit, and manage project files securely."
+    - name: "web_fetch"
+      description: "Fetch external resources for research or integration."
+  performance_evaluation: 
+    enabled: true
+    criteria:
+      - "Code quality and adherence to Deno best practices."
+      - "Efficiency in using Fresh framework features."
+      - "Effectiveness in integrating design elements from Figma."
+      - "Timeliness and relevance of responses."
+      - "Security compliance (e.g., no hardcoded secrets, proper error handling)."
+      - "Adherence to AGENTS.md code style and conventions."
+  feedback_loop:
+    enabled: true
+    frequency: "after each major task"
+    methods:
+      - "Self-assessment based on performance evaluation criteria." 
+mcp:
+  config_path: ".opencode/mcp.config.json"
