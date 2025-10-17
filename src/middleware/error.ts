@@ -1,11 +1,11 @@
-import { Context, State } from "../deps.ts";
-import type { Middleware } from "../types/middleware.ts";
+import { Context, State } from '../deps.ts';
+import type { Middleware } from '../types/middleware.ts';
 
 export class AppError extends Error {
-  override name = "AppError";
+  override name = 'AppError';
   constructor(
     public statusCode: number,
-    override message: string
+    override message: string,
   ) {
     super(message);
   }
@@ -13,7 +13,7 @@ export class AppError extends Error {
 
 export const errorMiddleware: Middleware = async (
   ctx: Context<State>,
-  next: () => Promise<unknown>
+  next: () => Promise<unknown>,
 ) => {
   try {
     await next();
@@ -24,7 +24,7 @@ export const errorMiddleware: Middleware = async (
     } else {
       console.error(error);
       ctx.response.status = 500;
-      ctx.response.body = { error: "Internal Server Error" };
+      ctx.response.body = { error: 'Internal Server Error' };
     }
   }
 };

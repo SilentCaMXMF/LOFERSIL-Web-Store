@@ -1,21 +1,21 @@
 export const openApiSpec = {
-  openapi: "3.0.0",
+  openapi: '3.0.0',
   info: {
-    title: "LOFERSIL Web Store API",
-    version: "1.0.0",
+    title: 'LOFERSIL Web Store API',
+    version: '1.0.0',
   },
   paths: {
-    "/login": {
+    '/login': {
       post: {
-        summary: "User login",
+        summary: 'User login',
         requestBody: {
           content: {
-            "application/json": {
+            'application/json': {
               schema: {
-                type: "object",
+                type: 'object',
                 properties: {
-                  username: { type: "string" },
-                  password: { type: "string" },
+                  username: { type: 'string' },
+                  password: { type: 'string' },
                 },
               },
             },
@@ -23,7 +23,7 @@ export const openApiSpec = {
         },
         responses: {
           200: {
-            description: "Login successful",
+            description: 'Login successful',
           },
         },
       },

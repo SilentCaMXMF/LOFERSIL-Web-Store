@@ -7,10 +7,10 @@ export interface User {
 }
 
 export async function createUser(user: User): Promise<void> {
-  await kv.set(["users", user.id], user);
+  await kv.set(['users', user.id], user);
 }
 
 export async function getUserById(id: string): Promise<User | null> {
-  const result = await kv.get(["users", id]);
+  const result = await kv.get(['users', id]);
   return result.value as User | null;
 }
