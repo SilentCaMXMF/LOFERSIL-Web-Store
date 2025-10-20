@@ -1,21 +1,23 @@
-#!/usr/bin/env -S deno run --allow-env --allow-net
+# !/usr/bin/env -S deno run --allow-env --allow-net
 
 /**
- * Figma API Tool for OpenCode
- * Direct integration with Figma REST API for design asset access
+
+* Figma API Tool for OpenCode
+* Direct integration with Figma REST API for design asset access
  */
 
 const FIGMA_API_KEY = Deno.env.get('FIGMA_API_KEY');
-const FIGMA_BASE_URL = 'https://api.figma.com/v1';
+const FIGMA_BASE_URL = '<https://api.figma.com/v1>';
 
 // Cache for API responses to improve performance
 const cache = new Map();
-const CACHE_TTL = 5 * 60 * 1000; // 5 minutes
+const CACHE_TTL = 5 *60* 1000; // 5 minutes
 
 /**
- * Fetch data from Figma API with caching and enhanced error handling
- * @param endpoint API endpoint (e.g., 'files/KEY')
- * @returns JSON response or error message
+
+* Fetch data from Figma API with caching and enhanced error handling
+* @param endpoint API endpoint (e.g., 'files/KEY')
+* @returns JSON response or error message
  */
 async function fetchFigma(endpoint: string) {
   if (!FIGMA_API_KEY) {
@@ -49,16 +51,18 @@ async function fetchFigma(endpoint: string) {
 }
 
 /**
- * Get file metadata
- * @param fileKey Figma file key
+
+* Get file metadata
+* @param fileKey Figma file key
  */
 export async function getFile(fileKey: string) {
   return await fetchFigma(`files/${fileKey}`);
 }
 
 /**
- * Get components from a file
- * @param fileKey Figma file key
+
+* Get components from a file
+* @param fileKey Figma file key
  */
 export async function getComponents(fileKey: string) {
   const data = await fetchFigma(`files/${fileKey}/components`);
@@ -66,8 +70,9 @@ export async function getComponents(fileKey: string) {
 }
 
 /**
- * Get styles from a file
- * @param fileKey Figma file key
+
+* Get styles from a file
+* @param fileKey Figma file key
  */
 export async function getStyles(fileKey: string) {
   const data = await fetchFigma(`files/${fileKey}/styles`);
@@ -75,10 +80,11 @@ export async function getStyles(fileKey: string) {
 }
 
 /**
- * Export a node as image (returns image URL)
- * @param fileKey Figma file key
- * @param nodeId Node ID to export
- * @param format Export format (e.g., 'png', 'svg')
+
+* Export a node as image (returns image URL)
+* @param fileKey Figma file key
+* @param nodeId Node ID to export
+* @param format Export format (e.g., 'png', 'svg')
  */
 export async function exportNode(fileKey: string, nodeId: string, format: string = 'png') {
   const data = await fetchFigma(`images/${fileKey}?ids=${nodeId}&format=${format}`);
@@ -86,16 +92,18 @@ export async function exportNode(fileKey: string, nodeId: string, format: string
 }
 
 /**
- * List projects in a team
- * @param teamId Figma team ID
+
+* List projects in a team
+* @param teamId Figma team ID
  */
 export async function getTeamProjects(teamId: string) {
   return await fetchFigma(`teams/${teamId}/projects`);
 }
 
 /**
- * List files in a project
- * @param projectId Figma project ID
+
+* List files in a project
+* @param projectId Figma project ID
  */
 export async function getProjectFiles(projectId: string) {
   return await fetchFigma(`projects/${projectId}/files`);

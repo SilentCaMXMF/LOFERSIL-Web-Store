@@ -1,15 +1,15 @@
-#!/usr/bin/env -S deno run --allow-env --allow-net
+# !/usr/bin/env -S deno run --allow-env --allow-net
 
-/**
- * Web-based SvelteKit MCP Tool
- * Uses Svelte documentation website directly instead of MCP server
- */
+**
 
-const SVELTE_DOCS_BASE = 'https://svelte.dev/docs';
+* Web-based SvelteKit MCP Tool
+* Uses Svelte documentation website directly instead of MCP server
+
+const SVELTE_DOCS_BASE = '<https://svelte.dev/docs>';
 
 // Cache for responses to improve performance
 const cache = new Map();
-const CACHE_TTL = 10 * 60 * 1000; // 10 minutes
+const CACHE_TTL = 10 *60* 1000; // 10 minutes
 
 async function fetchWithTimeout(url: string, timeout = 10000): Promise<Response> {
   const controller = new AbortController();
@@ -50,7 +50,8 @@ async function getCachedData(key: string, fetcher: () => Promise<any>) {
 }
 
 /**
- * Extract main content from Svelte docs page
+
+* Extract main content from Svelte docs page
  */
 async function extractDocsContent(path: string): Promise<string> {
   const url = `${SVELTE_DOCS_BASE}${path}`;
@@ -77,7 +78,8 @@ async function extractDocsContent(path: string): Promise<string> {
 }
 
 /**
- * List available documentation sections (mock based on common Svelte docs)
+
+* List available documentation sections (mock based on common Svelte docs)
  */
 export async function listSections() {
   return await getCachedData('sections', async () => {
@@ -90,7 +92,7 @@ export async function listSections() {
         },
         {
           title: "$state",
-          path: "/svelte/$state", 
+          path: "/svelte/$state",
           use_cases: ["Component state management", "Reactive variables"]
         },
         {
@@ -120,7 +122,7 @@ export async function listSections() {
         },
         {
           title: "{#each ...}",
-          path: "/svelte/each", 
+          path: "/svelte/each",
           use_cases: ["List rendering", "Iteration"]
         },
         {
@@ -154,13 +156,14 @@ export async function listSections() {
 }
 
 /**
- * Get documentation for specific sections
+
+* Get documentation for specific sections
  */
 export async function getDocumentation(paths: string[]) {
   const cacheKey = `docs_${paths.join(',')}`;
   return await getCachedData(cacheKey, async () => {
     const docs = [];
-    
+
     for (const path of paths) {
       try {
         const content = await extractDocsContent(path);
@@ -175,7 +178,7 @@ export async function getDocumentation(paths: string[]) {
         });
       }
     }
-    
+
     return {
       result: docs
     };
@@ -183,7 +186,8 @@ export async function getDocumentation(paths: string[]) {
 }
 
 /**
- * Mock Svelte code analyzer (basic checks)
+
+* Mock Svelte code analyzer (basic checks)
  */
 export async function svelteAutofixer(code: string) {
   const issues = [];
@@ -217,11 +221,12 @@ export async function svelteAutofixer(code: string) {
 }
 
 /**
- * Generate a mock playground link (in real implementation, this would use Svelte's playground API)
+
+* Generate a mock playground link (in real implementation, this would use Svelte's playground API)
  */
 export async function playgroundLink(files: Record<string, string>) {
   // Create a simple playground URL with the code
-  const mainFile = files['App.svelte'] || files['main.svelte'] || Object.values(files)[0] || '';
+  const mainFile = files['App.svelte'] || files['main.svelte'] || Object.values[files](0) || '';
   const encoded = btoa(encodeURIComponent(mainFile));
   
   return {

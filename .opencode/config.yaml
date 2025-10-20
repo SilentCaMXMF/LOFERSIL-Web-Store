@@ -6,7 +6,7 @@ project:
   enforce_deno_only: true
 
   agent:
-    model: "github-copilot/gpt-4o"
+     model: "openai/gpt-4"
     mode: "developer"
     init_prompt_path: "./AGENTS.md"
     agent_dir: "./.opencode/agent"

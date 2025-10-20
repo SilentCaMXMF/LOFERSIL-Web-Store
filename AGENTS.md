@@ -139,6 +139,7 @@ button component from Figma file XYZ and suggest Tailwind classes."
 - **Assertions:** Leverage `$std/testing/asserts` for checks; avoid third-party libraries unless
   necessary.
 - **Example Test:**
+
   ```tsx
   import { assertEquals } from '$std/testing/asserts.ts';
   import { render } from 'preact';
