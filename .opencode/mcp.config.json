@@ -1,17 +1,27 @@
 {
   "mcpServers": {
-    "Framelink MCP for Figma": {
-      "command": "npx",
+    "Figma API Direct": {
+      "command": "deno",
       "args": [
-        "-y",
-        "figma-developer-mcp",
-        "--figma-api-key",
-        "${FIGMA_API_KEY}",
+        "run",
+        "--allow-env",
+        "--allow-net",
+         ".opencode/tool/figma_mcp.ts",
         "--stdio"
       ],
       "env": {
         "FIGMA_API_KEY": "${FIGMA_API_KEY}"
       }
+    },
+    "SvelteKit MCP": {
+      "command": "deno",
+      "args": [
+        "run",
+        "--allow-env",
+        "--allow-net",
+        ".opencode/tool/sveltekit_mcp.ts",
+        "--stdio"
+      ]
     }
   }
 }
