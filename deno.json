@@ -11,7 +11,7 @@
     "backend": "deno run --watch --allow-net --allow-env --allow-read --allow-import --unstable-kv src/main.ts",
     "test": "deno test --allow-net --allow-env --allow-read --allow-import --unstable-kv",
     "cache": "deno cache --reload src/deps.ts",
-    "tui": "OPENCODE_MCP_CONFIG=.opencode/mcp.config.json opencode --config .opencode/config.yaml"
+    "tui": "export FIGMA_API_KEY=$(grep FIGMA_API_KEY .env | cut -d'=' -f2) && OPENCODE_MCP_CONFIG=.opencode/mcp.config.json opencode ."
   },
   "fmt": {
     "include": ["src/"],
