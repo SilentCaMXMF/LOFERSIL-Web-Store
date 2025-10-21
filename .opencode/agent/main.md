@@ -1,7 +1,7 @@
 ---
 description: Main development agent for LOFERSIL Web Store, coordinating subagents and managing Deno + Fresh + Preact development tasks
 mode: primary
- subagents:
+subagents:
    - FrontendDesigner
 model: openai/gpt-4
 temperature: 0.2

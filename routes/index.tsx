@@ -2,6 +2,7 @@ import { Handlers, PageProps } from '$fresh/server.ts';
 import { getSession } from '../utils/session.ts';
 import { Button } from '../components/Button.tsx';
 import Counter from '../islands/Counter.tsx';
+import MobileMenu from '../islands/MobileMenu.tsx';
 import { signal } from '@preact/signals';
 
 export const handler: Handlers = {
@@ -45,6 +46,7 @@ export default function Home(
               alt='LOFERSIL store front'
               class='w-10 h-10 rounded-full object-cover shadow-md'
               loading='lazy'
+              decoding='async'
             />
             <h1 class='text-2xl md:text-3xl font-bold text-white tracking-wide'>LOFERSIL</h1>
           </a>
@@ -70,6 +72,8 @@ export default function Home(
               Contact
             </a>
           </div>
+
+          <MobileMenu />
 
           {/* User Authentication */}
           <div class='flex space-x-3'>
@@ -113,6 +117,7 @@ export default function Home(
             alt='LOFERSIL store front'
             class='w-40 h-40 mx-auto mb-8 rounded-full shadow-2xl border-4 border-white'
             loading='lazy'
+            decoding='async'
           />
           <h1 class='text-4xl md:text-6xl lg:text-7xl font-extrabold mb-6 animate-pulse'>
             LOFERSIL Office Supplies
@@ -166,6 +171,7 @@ export default function Home(
                 alt='Interior with staff'
                 class='w-20 h-20 mx-auto mb-6 rounded-full shadow-md'
                 loading='lazy'
+                decoding='async'
               />
               <h3 class='text-2xl font-bold mb-4 text-slate-800'>Expert Team</h3>
               <p class='text-lg text-slate-600'>
@@ -179,6 +185,7 @@ export default function Home(
                 alt='Store interior'
                 class='w-20 h-20 mx-auto mb-6 rounded-full shadow-md'
                 loading='lazy'
+                decoding='async'
               />
               <h3 class='text-2xl font-bold mb-4 text-slate-800'>Organized Interior</h3>
               <p class='text-lg text-slate-600'>
@@ -192,6 +199,7 @@ export default function Home(
                 alt='Store front'
                 class='w-20 h-20 mx-auto mb-6 rounded-full shadow-md'
                 loading='lazy'
+                decoding='async'
               />
               <h3 class='text-2xl font-bold mb-4 text-slate-800'>Prime Location</h3>
               <p class='text-lg text-slate-600'>

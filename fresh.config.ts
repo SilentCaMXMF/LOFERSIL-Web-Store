@@ -1,6 +1,5 @@
 import { defineConfig } from "$fresh/server.ts";
 
 export default defineConfig({
-  staticDir: "./static",
   port: 8000,
 });

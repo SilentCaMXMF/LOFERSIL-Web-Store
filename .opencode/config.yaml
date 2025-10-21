@@ -46,7 +46,7 @@ project:
       frequency: "after each major task"
       methods:
         - "Self-assessment based on performance evaluation criteria."
-     subagents:
+    subagents:
        - "FrontendDesigner"
   mcp:
     config_path: ".opencode/mcp.config.json"
