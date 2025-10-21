@@ -1,24 +1,23 @@
 {
-  "tasks": {
-    "start": "deno run -A --unstable-kv --watch=static/,routes/ dev.ts",
-    "dev": "deno run --watch --allow-net --allow-env --allow-read --allow-import --unstable-kv src/main.ts",
-    "build": "deno run -A --unstable-kv dev.ts build",
-    "preview": "deno run -A --unstable-kv main.ts",
-    "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
-    "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable-kv -A -",
-    "manifest": "deno task cli manifest $(pwd)",
-    "update": "deno run -A -r https://fresh.deno.dev/update .",
-    "backend": "deno run --watch --allow-net --allow-env --allow-read --allow-import --unstable-kv src/main.ts",
-    "test": "deno test --allow-net --allow-env --allow-read --allow-import --unstable-kv",
-    "cache": "deno cache --reload src/deps.ts",
-    "tui": "export FIGMA_API_KEY=$(grep FIGMA_API_KEY .env | cut -d'=' -f2) && OPENCODE_MCP_CONFIG=.opencode/mcp.config.json opencode ."
-  },
-  "fmt": {
-    "include": ["src/"],
-    "lineWidth": 100,
-    "indentWidth": 2,
-    "singleQuote": true
-  },
+   "tasks": {
+     "start": "deno run -A --unstable-kv --watch=static/,routes/ dev.ts",
+     "dev": "deno run -A --unstable-kv --watch=static/,routes/ dev.ts",
+     "build": "deno run -A --unstable-kv dev.ts build",
+     "preview": "deno run -A --unstable-kv main.ts",
+     "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
+     "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable-kv -A -",
+     "manifest": "deno task cli manifest $(pwd)",
+     "update": "deno run -A -r https://fresh.deno.dev/update .",
+     "test": "deno test --allow-net --allow-env --allow-read --allow-import --unstable-kv",
+     "cache": "deno cache --reload src/deps.ts",
+     "tui": "export FIGMA_API_KEY=$(grep FIGMA_API_KEY .env | cut -d'=' -f2) && OPENCODE_MCP_CONFIG=.opencode/mcp.config.json opencode ."
+   },
+   "fmt": {
+     "include": ["src/", "routes/", "components/", "islands/", "utils/", "types/", "tests/"],
+     "lineWidth": 100,
+     "indentWidth": 2,
+     "singleQuote": true
+   },
   "lint": {
     "rules": {
       "tags": [

@@ -1,4 +1,4 @@
-import { compare, hash } from "https://deno.land/x/bcrypt@v0.4.1/mod.ts";
+import { compare, hash } from 'https://deno.land/x/bcrypt@v0.4.1/mod.ts';
 
 export async function hashPassword(password: string): Promise<string> {
   return await hash(password);
@@ -18,10 +18,10 @@ export function validatePassword(password: string): boolean {
   const hasLowerCase = /[a-z]/.test(password);
   const hasNumbers = /\d/.test(password);
   const hasSpecialChar = /[!@#$%^&*]/.test(password);
-  
-  return password.length >= minLength && 
-         hasUpperCase && 
-         hasLowerCase && 
-         hasNumbers && 
-         hasSpecialChar;
+
+  return password.length >= minLength &&
+    hasUpperCase &&
+    hasLowerCase &&
+    hasNumbers &&
+    hasSpecialChar;
 }

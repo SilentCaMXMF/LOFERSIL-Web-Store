@@ -4,13 +4,12 @@ project:
   framework: "fresh"
   language: "typescript"
   enforce_deno_only: true
-
   agent:
-     model: "openai/gpt-4"
-    mode: "developer"
-    init_prompt_path: "./AGENTS.md"
-    agent_dir: "./.opencode/agent"
-    main_agent: "main.md"
+     model: "code-supernova-001"
+     mode: "developer"
+     init_prompt_path: "./AGENTS.md"
+     agent_dir: "./.opencode/agent"
+     main_agent: "main.md"
   startup_message: |
     🦕 Welcome to the LOFERSIL Deno workspace!
     You are working in a Deno 2.x environment with Fresh + Preact.
@@ -32,8 +31,7 @@ project:
       description: "Read, edit, and manage project files securely."
     - name: "web_fetch"
       description: "Fetch external resources for research or integration."
-    - name: "sveltekit_mcp"
-      description: "Access SvelteKit MCP for documentation and code assistance."
+
   performance_evaluation: 
     enabled: true
     criteria:
@@ -48,8 +46,7 @@ project:
       frequency: "after each major task"
       methods:
         - "Self-assessment based on performance evaluation criteria."
-    subagents:
-      - "FrontendDesigner"
-      - "sveltekit-helper"
+     subagents:
+       - "FrontendDesigner"
   mcp:
     config_path: ".opencode/mcp.config.json"

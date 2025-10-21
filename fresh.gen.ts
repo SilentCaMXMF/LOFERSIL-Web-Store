@@ -11,6 +11,7 @@ import * as $login from './routes/login.tsx';
 import * as $logout from './routes/logout.ts';
 import * as $register from './routes/register.tsx';
 import * as $Counter from './islands/Counter.tsx';
+import * as $ProductCard from './islands/ProductCard.tsx';
 import type { Manifest } from '$fresh/server.ts';
 
 const manifest = {
@@ -26,6 +27,7 @@ const manifest = {
   },
   islands: {
     './islands/Counter.tsx': $Counter,
+    './islands/ProductCard.tsx': $ProductCard,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

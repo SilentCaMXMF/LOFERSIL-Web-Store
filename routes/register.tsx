@@ -1,18 +1,14 @@
-import { Handlers } from "$fresh/server.ts";
+import { Handlers } from '$fresh/server.ts';
 
 export const handler: Handlers = {
   async POST(req) {
     const form = await req.formData();
-    const email = form.get("email") as string;
-    const password = form.get("password") as string;
-    const confirmPassword = form.get("confirmPassword") as string;
 
-    // Proxy to backend
-    const backendUrl = "http://localhost:8000/auth/register";
-    const response = await fetch(backendUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams({ email, password, confirmPassword }),
+    // Call internal API
+    const apiUrl = new URL(req.url).origin + '/api/auth/register';
+    const response = await fetch(apiUrl, {
+      method: 'POST',
+      body: form,
     });
 
     if (!response.ok) {
@@ -28,20 +24,20 @@ export default function Register() {
   return (
     <div>
       <h1>Register</h1>
-      <form method="post">
+      <form method='post'>
         <label>
           Email:
-          <input type="email" name="email" required />
+          <input type='email' name='email' required />
         </label>
         <label>
           Password:
-          <input type="password" name="password" required />
+          <input type='password' name='password' required />
         </label>
         <label>
           Confirm Password:
-          <input type="password" name="confirmPassword" required />
+          <input type='password' name='confirmPassword' required />
         </label>
-        <button type="submit">Register</button>
+        <button type='submit'>Register</button>
       </form>
     </div>
   );

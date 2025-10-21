@@ -1,4 +1,4 @@
-import { kv } from "./db.ts";
+import { kv } from './db.ts';
 
 export interface Session {
   userId: string;
@@ -19,17 +19,17 @@ export async function createSession(
     role,
     createdAt: new Date(),
   };
-  await kv.set(["sessions", sessionId], session, {
+  await kv.set(['sessions', sessionId], session, {
     expireIn: 60 * 60 * 24 * 7 * 1000,
   }); // 7 days
   return sessionId;
 }
 
 export async function getSession(sessionId: string): Promise<Session | null> {
-  const result = await kv.get(["sessions", sessionId]);
+  const result = await kv.get(['sessions', sessionId]);
   return result.value as Session | null;
 }
 
 export async function deleteSession(sessionId: string): Promise<void> {
-  await kv.delete(["sessions", sessionId]);
+  await kv.delete(['sessions', sessionId]);
 }

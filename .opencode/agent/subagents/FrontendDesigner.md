@@ -1,7 +1,7 @@
 ---
 description: Exclusive frontend designer for LOFERSIL Web Store, specializing in UI/UX components and layouts using Figma integration
 mode: subagent
- model: openai/gpt-4
+model: openai/gpt-4
 temperature: 0.3
 tools:
   figma_mcp: true
