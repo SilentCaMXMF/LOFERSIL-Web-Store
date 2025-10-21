@@ -32,4 +32,4 @@ yarn-error.log*
 
 # OpenCode specific
 .opencode/cache/
-.opencode/tmp/
+.opencode/tmp/.env
