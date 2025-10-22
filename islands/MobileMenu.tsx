@@ -23,21 +23,21 @@ export default function MobileMenu() {
               class='block text-white hover:text-yellow-300 focus:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded px-3 py-2 transition-all'
               onClick={() => setIsOpen(false)}
             >
-              Features
+              Características
             </a>
             <a
               href='#about'
               class='block text-white hover:text-yellow-300 focus:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded px-3 py-2 transition-all'
               onClick={() => setIsOpen(false)}
             >
-              About
+              Sobre Nós
             </a>
             <a
               href='#contact'
               class='block text-white hover:text-yellow-300 focus:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded px-3 py-2 transition-all'
               onClick={() => setIsOpen(false)}
             >
-              Contact
+              Contacto
             </a>
           </div>
         </div>

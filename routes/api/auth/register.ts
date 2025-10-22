@@ -1,7 +1,8 @@
 import { Handlers } from '$fresh/server.ts';
 import { createUser, getUserByEmail } from '../../../utils/db.ts';
-import { hashPassword } from '../../../utils/auth.ts';
+import { hashPassword, validatePassword } from '../../../utils/auth.ts';
 import { User } from '../../../types/user.ts';
+import { AppError } from '../../../utils/errors.ts';
 
 export const handler: Handlers = {
   async POST(req) {
@@ -11,26 +12,26 @@ export const handler: Handlers = {
       const password = form.get('password') as string;
       const confirmPassword = form.get('confirmPassword') as string;
 
+      // Enhanced validation
       if (!email || !password || !confirmPassword) {
-        return new Response(JSON.stringify({ error: 'All fields required' }), {
-          status: 400,
-          headers: { 'Content-Type': 'application/json' },
-        });
+        throw new AppError(400, 'All fields are required');
+      }
+
+      if (!email.includes('@') || email.length < 5) {
+        throw new AppError(400, 'Invalid email format');
+      }
+
+      if (!validatePassword(password)) {
+        throw new AppError(400, 'Password does not meet security requirements');
       }
 
       if (password !== confirmPassword) {
-        return new Response(JSON.stringify({ error: 'Passwords do not match' }), {
-          status: 400,
-          headers: { 'Content-Type': 'application/json' },
-        });
+        throw new AppError(400, 'Passwords do not match');
       }
 
       const existingUser = await getUserByEmail(email);
       if (existingUser) {
-        return new Response(JSON.stringify({ error: 'User already exists' }), {
-          status: 400,
-          headers: { 'Content-Type': 'application/json' },
-        });
+        throw new AppError(409, 'User already exists');
       }
 
       const hashedPassword = await hashPassword(password);
@@ -48,6 +49,12 @@ export const handler: Handlers = {
         headers: { 'Content-Type': 'application/json' },
       });
     } catch (error) {
+      if (error instanceof AppError) {
+        return new Response(JSON.stringify({ error: error.message }), {
+          status: error.statusCode,
+          headers: { 'Content-Type': 'application/json' },
+        });
+      }
       console.error('Registration error:', error);
       return new Response(JSON.stringify({ error: 'Internal server error' }), {
         status: 500,

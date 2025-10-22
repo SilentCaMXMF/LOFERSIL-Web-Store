@@ -6,7 +6,7 @@
 
 import "https://deno.land/std@0.224.0/dotenv/load.ts";
  
-import { start } from "https://deno.land/x/fresh@1.3.0/server.ts";
+import { start } from "https://deno.land/x/fresh@1.7.3/server.ts";
 import manifest from "./fresh.gen.ts";
 import config from "./fresh.config.ts";
 

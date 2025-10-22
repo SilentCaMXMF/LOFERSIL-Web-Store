@@ -10,10 +10,10 @@ export default function Error404() {
         <div class='max-w-screen-md mx-auto flex flex-col items-center justify-center'>
           <img
             class='my-6'
-            src='/static/logo.svg'
+            src='/static/icons/logo.svg'
             width='128'
             height='128'
-            alt='the Fresh logo: a sliced lemon dripping with juice'
+            alt='LOFERSIL logo: office supplies store icon'
             loading='lazy'
           />
           <h1 class='text-4xl font-bold'>404 - Page not found</h1>

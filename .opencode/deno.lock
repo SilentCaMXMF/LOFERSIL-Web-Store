@@ -8,7 +8,7 @@
   "workspace": {
     "packageJson": {
       "dependencies": [
-        "npm:@opencode-ai/plugin@0.15.10"
+        "npm:@opencode-ai/plugin@0.15.13"
       ]
     }
   }

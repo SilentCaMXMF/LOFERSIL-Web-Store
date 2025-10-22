@@ -1,7 +1,12 @@
 {
   "deno.enable": true,
   "deno.lint": true,
-  "deno.unstable": false,
-  "deno.config": "./deno.jsonc",
-  "liveServer.settings.port": 5501
+  "deno.unstable": true,
+  "deno.suggest.imports.hosts": {
+    "https://deno.land": true,
+    "https://esm.sh": true
+  },
+  "editor.defaultFormatter": "denoland.vscode-deno",
+  "editor.formatOnSave": true,
+  "typescript.preferences.includePackageJsonAutoImports": "off"
 }

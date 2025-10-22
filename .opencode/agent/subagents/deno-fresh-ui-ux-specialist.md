@@ -1,4 +1,4 @@
----
+<!-- ---
 description: "Deno Fresh UI/UX Specialist for modern, secure, and accessible web interfaces"
 mode: primary
 model: claude-4-sonnet
@@ -106,4 +106,4 @@ When tasked with creating a new component:
 2. Install any needed Deno modules (e.g., `deno cache https://deno.land/x/some_module/mod.ts`)
 3. Implement with proper TypeScript types and error handling
 4. Run tests: `deno test`, security checks, accessibility validation
-5. Update dependencies if vulnerabilities found
+5. Update dependencies if vulnerabilities found -->

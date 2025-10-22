@@ -1,4 +1,4 @@
-# AGENTS.md
+<!--# AGENTS.md
 
 ## 🦕 Agent Initialization Prompt
 
@@ -159,4 +159,4 @@ button component from Figma file XYZ and suggest Tailwind classes."
 - **Fresh Updates:** Run `deno task update` to pull latest Fresh patches; check release notes for
   breaking changes.
 - **Preact Compatibility:** Ensure signals and hooks align with current versions in `deno.json`.
-- **Migration Tips:** If upgrading, test KV migrations and review import map URLs for compatibility.
+- **Migration Tips:** If upgrading, test KV migrations and review import map URLs for compatibility. -->

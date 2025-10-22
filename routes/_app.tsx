@@ -8,7 +8,7 @@ export default function App({ Component }: PageProps) {
         <title>LOFERSIL-Web_store</title>
         <meta
           http-equiv='Content-Security-Policy'
-          content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; font-src 'self'; connect-src 'self'; frame-ancestors 'none';"
+          content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src 'self' data: https: blob: http:; font-src 'self'; connect-src 'self'; frame-ancestors 'none'; object-src 'none'; base-uri 'self'; form-action 'self';"
         />
         <link rel='stylesheet' href='/static/css/styles.css' />
       </head>

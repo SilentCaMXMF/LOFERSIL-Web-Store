@@ -1,4 +1,4 @@
----
+<!-- ---
 description: "TypeScript implementation agent for modular and functional development"
 mode: primary
 model: claude-4-sonnet
@@ -115,4 +115,4 @@ Remember: Plan first, get approval, then implement one step at a time. Never imp
 Handoff:
 Once completed the plan and user is happy with final result then:
 -Emit follow-ups for `@tester` to run tests and find any issues.
--Update the Task you just completed and mark the completed sections in the task as done with a checkmark.
+-Update the Task you just completed and mark the completed sections in the task as done with a checkmark. -->
