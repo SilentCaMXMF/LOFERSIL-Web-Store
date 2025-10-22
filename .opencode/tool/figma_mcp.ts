@@ -23,7 +23,7 @@ const CACHE_TTL = 5 *60* 1000; // 5 minutes
  * @param endpoint API endpoint (e.g., 'files/KEY')
  * @returns JSON response or error message
  */
-/*async function fetchFigma(endpoint: string) {
+async function fetchFigma(endpoint: string) {
   if (!FIGMA_API_KEY) {
     throw new Error('FIGMA_API_KEY not set. Please provide a valid Figma API key.');
   }
@@ -50,7 +50,7 @@ const CACHE_TTL = 5 *60* 1000; // 5 minutes
     cache.set(cacheKey, { data, timestamp: Date.now() });
     return data;
   } catch (error) {
-    throw new Error(`Failed to fetch from Figma: ${error.message}`);
+    throw new Error(`Failed to fetch from Figma: ${(error as Error).message}`);
   }
 }
 
@@ -59,7 +59,7 @@ const CACHE_TTL = 5 *60* 1000; // 5 minutes
  * Get file metadata
  * @param fileKey Figma file key
  */
-/*export async function getFile(fileKey: string) {
+export async function getFile(fileKey: string) {
   return await fetchFigma(`files/${fileKey}`);
 }
 
@@ -68,7 +68,7 @@ const CACHE_TTL = 5 *60* 1000; // 5 minutes
  * Get components from a file
  * @param fileKey Figma file key
  */
-/*export async function getComponents(fileKey: string) {
+export async function getComponents(fileKey: string) {
   const data = await fetchFigma(`files/${fileKey}/components`);
   return data.meta.components;
 }
@@ -78,7 +78,7 @@ const CACHE_TTL = 5 *60* 1000; // 5 minutes
  * Get styles from a file
  * @param fileKey Figma file key
  */
-/*export async function getStyles(fileKey: string) {
+export async function getStyles(fileKey: string) {
   const data = await fetchFigma(`files/${fileKey}/styles`);
   return data.meta.styles;
 }
@@ -90,7 +90,7 @@ const CACHE_TTL = 5 *60* 1000; // 5 minutes
  * @param nodeId Node ID to export
  * @param format Export format (e.g., 'png', 'svg')
  */
-/*export async function exportNode(fileKey: string, nodeId: string, format: string = 'png') {
+export async function exportNode(fileKey: string, nodeId: string, format: string = 'png') {
   const data = await fetchFigma(`images/${fileKey}?ids=${nodeId}&format=${format}`);
   return data.images[nodeId];
 }
@@ -100,7 +100,7 @@ const CACHE_TTL = 5 *60* 1000; // 5 minutes
  * List projects in a team
  * @param teamId Figma team ID
  */
-/*export async function getTeamProjects(teamId: string) {
+export async function getTeamProjects(teamId: string) {
   return await fetchFigma(`teams/${teamId}/projects`);
 }
 
@@ -109,7 +109,7 @@ const CACHE_TTL = 5 *60* 1000; // 5 minutes
  * List files in a project
  * @param projectId Figma project ID
  */
-/*export async function getProjectFiles(projectId: string) {
+export async function getProjectFiles(projectId: string) {
   return await fetchFigma(`projects/${projectId}/files`);
 }
 
@@ -152,7 +152,7 @@ if (import.meta.main) {
     }
     console.log(JSON.stringify(result, null, 2));
   } catch (error) {
-    console.error(error.message);
+    console.error((error as Error).message);
     Deno.exit(1);
   }
  }
