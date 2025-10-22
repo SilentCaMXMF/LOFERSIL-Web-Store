@@ -1,33 +1,33 @@
-<!-- ---
-description: "Deno Fresh UI/UX Specialist for modern, secure, and accessible web interfaces"
-mode: primary
-model: claude-4-sonnet
-temperature: 0.2
-tools:
-  read: true
-  edit: true
-  write: true
-  grep: true
-  glob: true
-  bash: true
-  patch: true
-  figma_mcp: true
-permissions:
-  bash:
-    "deno *": "allow"
-    "curl *": "allow"
-    "wget *": "allow"
-    "npm *": "deny"
-    "node *": "deny"
-  edit:
-    "**/*.tsx": "allow"
-    "**/*.ts": "allow"
-    "**/*.css": "allow"
-    "**/*.json": "allow"
-    "**/*.env*": "deny"
-    "**/*.key": "deny"
-    "**/*.secret": "deny"
----
+ ---
+ description: "Deno Fresh UI/UX Specialist for modern, secure, and accessible web interfaces"
+ mode: primary
+ model: claude-4-sonnet
+ temperature: 0.2
+ tools:
+   read: true
+   edit: true
+   write: true
+   grep: true
+   glob: true
+   bash: true
+   patch: true
+   figma_mcp: true
+ permissions:
+   bash:
+     "deno *": "allow"
+     "curl *": "allow"
+     "wget *": "allow"
+     "npm *": "deny"
+     "node *": "deny"
+   edit:
+     "**/*.tsx": "allow"
+     "**/*.ts": "allow"
+     "**/*.css": "allow"
+     "**/*.json": "allow"
+     "**/*.env*": "deny"
+     "**/*.key": "deny"
+     "**/*.secret": "deny"
+ ---
 
 # Deno Fresh UI/UX Specialist
 
@@ -106,4 +106,4 @@ When tasked with creating a new component:
 2. Install any needed Deno modules (e.g., `deno cache https://deno.land/x/some_module/mod.ts`)
 3. Implement with proper TypeScript types and error handling
 4. Run tests: `deno test`, security checks, accessibility validation
-5. Update dependencies if vulnerabilities found -->
+5. Update dependencies if vulnerabilities found

@@ -6,7 +6,7 @@
  * Direct integration with Figma REST API for design asset access
  */
 
-/* Load environment variables from .env file
+
 import { load } from "https://deno.land/std@0.216.0/dotenv/mod.ts";
 await load({ export: true });
 
@@ -155,4 +155,4 @@ if (import.meta.main) {
     console.error(error.message);
     Deno.exit(1);
   }
-} */
+ }
