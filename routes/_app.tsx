@@ -1,5 +1,11 @@
 import { type PageProps } from '$fresh/server.ts';
+import { loadTranslationsSync } from '../utils/i18n.ts';
+
 export default function App({ Component }: PageProps) {
+  // Initialize translations on server-side
+  loadTranslationsSync('en');
+  loadTranslationsSync('pt');
+
   return (
     <html>
       <head>

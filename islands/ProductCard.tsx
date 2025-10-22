@@ -1,37 +1,31 @@
 import { useState } from 'preact/hooks';
+import { signal } from '@preact/signals';
+import { Product } from '../types/product.ts';
 
-interface ProductCardProps {
-  id: string;
-  title: string;
-  price: number;
-  imageUrl: string;
-  onAddToCart: (id: string) => void;
-}
+const count = signal(0);
 
-export default function ProductCard({ id, title, price, imageUrl, onAddToCart }: ProductCardProps) {
-  const [isAdding, setIsAdding] = useState(false);
-
-  const handleAddToCart = () => {
-    setIsAdding(true);
-    onAddToCart(id);
-    setIsAdding(false);
-  };
+export default function ProductCard({ product }: { product: Product }) {
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
-    <div class='max-w-sm rounded-lg shadow-lg bg-white overflow-hidden'>
-      <img class='w-full h-48 object-cover' src={imageUrl} alt={title} />
-      <div class='p-4'>
-        <h3 class='text-lg font-semibold text-gray-800'>{title}</h3>
-        <p class='text-xl font-bold text-green-600 mt-2'>${price.toFixed(2)}</p>
-        <button
-          type='button'
-          onClick={handleAddToCart}
-          disabled={isAdding}
-          class='mt-4 w-full px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700 disabled:bg-gray-400 transition-colors'
-        >
-          {isAdding ? 'Adding...' : 'Add to Cart'}
-        </button>
-      </div>
+    <div
+      class={`p-4 border rounded-lg shadow-md transition-transform ${isHovered ? 'scale-105' : ''}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      role='article'
+      aria-label={`Product: ${product.name}`}
+    >
+      <img src={product.image} alt={product.name} class='w-full h-48 object-cover' />
+      <h3 class='text-lg font-semibold mt-2'>{product.name}</h3>
+      <p class='text-gray-600'>${product.price}</p>
+      <button
+        type='button'
+        onClick={() => count.value++}
+        class='mt-2 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-700'
+        aria-label='Add to cart'
+      >
+        Add to Cart ({count})
+      </button>
     </div>
   );
 }

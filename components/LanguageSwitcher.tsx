@@ -1,4 +1,4 @@
-import { currentLanguage, languages, Language } from '../utils/i18n.ts';
+import { currentLanguage, Language, languages } from '../utils/i18n.ts';
 
 interface LanguageSwitcherProps {
   className?: string;
@@ -16,12 +16,12 @@ export default function LanguageSwitcher({ className = '' }: LanguageSwitcherPro
       {languages.map((lang) => (
         <button
           key={lang}
-          type="button"
+          type='button'
           onClick={() => handleLanguageChange(lang)}
-          class={`px-3 py-1 rounded-full text-sm font-medium transition-all ${
+          class={`px-3 py-1 rounded-full text-sm font-medium transition-all duration-300 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-400 ${
             currentLanguage.value === lang
-              ? 'bg-yellow-400 text-black'
-              : 'bg-white bg-opacity-20 text-white hover:bg-opacity-30'
+              ? 'bg-yellow-400 text-black shadow-lg'
+              : 'bg-white bg-opacity-20 text-white hover:bg-opacity-30 hover:shadow-md'
           }`}
           aria-label={`Switch to ${lang === 'en' ? 'English' : 'Português'}`}
         >

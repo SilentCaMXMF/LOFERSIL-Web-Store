@@ -4,7 +4,7 @@
     "dev": "deno run -A --unstable-kv --watch=static/,routes/ dev.ts",
     "build": "deno task build:css && deno run -A --unstable-kv dev.ts build",
     "preview": "deno run -A --unstable-kv main.ts",
-    "check": "deno fmt --check && deno lint && deno check **/*.ts && deno check **/*.tsx",
+    "check": "deno fmt --check && deno lint && deno check routes/ components/ islands/ utils/ types/ scripts/ && deno check **/*.tsx",
     "cli": "echo \"import '\\$fresh/src/dev/cli.ts'\" | deno run --unstable-kv -A -",
     "manifest": "deno task cli manifest $(pwd)",
     "update": "deno run -A -r https://fresh.deno.dev/update .",

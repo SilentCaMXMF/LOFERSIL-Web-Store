@@ -13,10 +13,11 @@ import * as $index from './routes/index.tsx';
 import * as $login from './routes/login.tsx';
 import * as $logout from './routes/logout.ts';
 import * as $register from './routes/register.tsx';
-import * as $static_path_ from './routes/static/[...path].ts';
 import * as $Counter from './islands/Counter.tsx';
 import * as $MobileMenu from './islands/MobileMenu.tsx';
 import * as $ProductCard from './islands/ProductCard.tsx';
+import * as $ProductShowcaseCarousel from './islands/ProductShowcaseCarousel.tsx';
+import * as $TestimonialsCarousel from './islands/TestimonialsCarousel.tsx';
 import type { Manifest } from '$fresh/server.ts';
 
 const manifest = {
@@ -32,12 +33,13 @@ const manifest = {
     './routes/login.tsx': $login,
     './routes/logout.ts': $logout,
     './routes/register.tsx': $register,
-    './routes/static/[...path].ts': $static_path_,
   },
   islands: {
     './islands/Counter.tsx': $Counter,
     './islands/MobileMenu.tsx': $MobileMenu,
     './islands/ProductCard.tsx': $ProductCard,
+    './islands/ProductShowcaseCarousel.tsx': $ProductShowcaseCarousel,
+    './islands/TestimonialsCarousel.tsx': $TestimonialsCarousel,
   },
   baseUrl: import.meta.url,
 } satisfies Manifest;

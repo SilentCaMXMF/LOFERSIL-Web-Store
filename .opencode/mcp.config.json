@@ -1,17 +1,30 @@
- {
-   "mcpServers": {
-     "Figma API Direct": {
+{
+  "mcpServers": {
+    "Figma API Direct": {
+      "command": "deno",
+      "args": [
+        "run",
+        "--allow-env",
+        "--allow-net",
+         ".opencode/tool/figma_mcp.ts",
+        "--stdio"
+      ],
+      "env": {
+        "FIGMA_API_KEY": "${FIGMA_API_KEY}"
+     },
+     "Gemini API": {
        "command": "deno",
        "args": [
          "run",
          "--allow-env",
          "--allow-net",
-          ".opencode/tool/figma_mcp.ts",
+         ".opencode/tool/gemini_mcp.ts",
          "--stdio"
        ],
        "env": {
-         "FIGMA_API_KEY": "${FIGMA_API_KEY}"
+         "GEMINI_API_KEY": "${GEMINI_API_KEY}"
        }
      }
    }
  }
+}

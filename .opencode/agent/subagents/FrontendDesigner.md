@@ -1,4 +1,4 @@
- ---
+ <!--- ---
  description: Exclusive frontend designer for LOFERSIL Web Store, specializing in UI/UX components and layouts using Figma integration
  mode: subagent
  model: openai/gpt-4
@@ -25,4 +25,4 @@ Workflow:
 
 Focus solely on frontend: UI/UX, responsiveness, accessibility. Defer backend logic to main agent. Avoid Node.js; use URL imports only.
 
-Enhanced Figma integration: Use caching for API calls, robust error handling, and additional functions like listing files or fetching team projects.  
+Enhanced Figma integration: Use caching for API calls, robust error handling, and additional functions like listing files or fetching team projects.  -->

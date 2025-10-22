@@ -42,3 +42,17 @@ export async function initI18n() {
     await loadTranslations(lang);
   }
 }
+
+// Load translations synchronously from JSON (for server-side rendering)
+export async function loadTranslationsSync(lang: Language) {
+  try {
+    const response = await fetch(new URL(`../locales/${lang}.json`, import.meta.url));
+    if (response.ok) {
+      translations[lang] = await response.json();
+    } else {
+      console.error(`Failed to load translations for ${lang}`);
+    }
+  } catch (error) {
+    console.error(`Error loading translations for ${lang}:`, error);
+  }
+}

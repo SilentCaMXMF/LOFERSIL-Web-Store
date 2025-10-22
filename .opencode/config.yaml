@@ -48,5 +48,7 @@ project:
         - "Self-assessment based on performance evaluation criteria."
     subagents:
        - "FrontendDesigner"
-  mcp:
+       - "FrontendDeveloper"
+       - "deno-fresh-ui-ux-specialist"
+mcp:
     config_path: ".opencode/mcp.config.json"
