@@ -1,0 +1,16 @@
+{
+  "nav.products": "Produtos",
+  "nav.about": "Sobre",
+  "nav.contact": "Contacto",
+  "hero.title": "LOFERSIL Materiais de Escritório",
+  "hero.subtitle": "A sua fonte de confiança para todas as necessidades de escritório",
+  "hero.welcome": "Bem-vindo de volta, {email}!",
+  "hero.getStarted": "Começar",
+  "hero.shopNow": "Comprar Agora",
+  "hero.login": "Iniciar Sessão",
+  "hero.logout": "Terminar Sessão",
+  "hero.account": "Conta",
+  "footer.copyright": "© 2024 LOFERSIL Materiais de Escritório. Todos os direitos reservados.",
+  "alt.storeInterior": "Interior da loja LOFERSIL",
+  "alt.officeIcon": "Ícone de materiais de escritório LOFERSIL"
+}

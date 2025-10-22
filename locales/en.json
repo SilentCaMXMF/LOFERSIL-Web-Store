@@ -1,0 +1,16 @@
+{
+  "nav.products": "Products",
+  "nav.about": "About",
+  "nav.contact": "Contact",
+  "hero.title": "LOFERSIL Office Supplies",
+  "hero.subtitle": "Your trusted source for all office needs",
+  "hero.welcome": "Welcome back, {email}!",
+  "hero.getStarted": "Get Started",
+  "hero.shopNow": "Shop Now",
+  "hero.login": "Login",
+  "hero.logout": "Logout",
+  "hero.account": "Account",
+  "footer.copyright": "© 2024 LOFERSIL Office Supplies. All rights reserved.",
+  "alt.storeInterior": "LOFERSIL store interior",
+  "alt.officeIcon": "LOFERSIL office materials icon"
+}
