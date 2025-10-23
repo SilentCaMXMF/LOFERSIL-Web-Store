@@ -4,6 +4,7 @@ import { getSession } from '../utils/session.ts';
 import { Button } from '../components/Button.tsx';
 import MobileMenu from '../islands/MobileMenu.tsx';
 import LanguageSwitcher from '../islands/LanguageSwitcher.tsx';
+import DarkModeToggle from '../islands/DarkModeToggle.tsx';
 import TestimonialsCarousel from '../islands/TestimonialsCarousel.tsx';
 import ProductShowcaseCarousel from '../islands/ProductShowcaseCarousel.tsx';
 import { signal } from '@preact/signals';
@@ -47,12 +48,30 @@ export default function Home(
           property='og:description'
           content={t('seo.description') || 'Discover high-quality office materials at LOFERSIL.'}
         />
-        <meta property='og:image' content='/static/images/interior.jpg' />
-        <meta name='twitter:card' content='summary_large_image' />
+         <meta property='og:image' content='/static/images/interior.jpg' />
+         <meta property='og:image:width' content='1200' />
+         <meta property='og:image:height' content='630' />
+         <meta property='og:image:alt' content={t('alt.storeInterior')} />
+         <meta name='twitter:card' content='summary_large_image' />
+         <link rel='preload' as='image' href='/static/images/interior.jpg' />
       </Head>
-      <div class='min-h-screen bg-gray-50'>
-        {/* Fixed Header */}
-        <header class='fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-slate-900/95 via-slate-800/95 to-slate-900/95 backdrop-blur-lg shadow-2xl border-b border-white/10'>
+       <div class='min-h-screen bg-gray-50 dark:bg-slate-900'>
+         {/* Skip Links for Accessibility */}
+         <a
+           href='#main-content'
+           class='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded z-50 focus:outline-none focus:ring-2 focus:ring-blue-400'
+         >
+           Skip to main content
+         </a>
+         <a
+           href='#footer'
+           class='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-32 bg-blue-600 text-white px-4 py-2 rounded z-50 focus:outline-none focus:ring-2 focus:ring-blue-400'
+         >
+           Skip to footer
+         </a>
+
+         {/* Fixed Header */}
+         <header class='fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-slate-900/80 via-slate-800/80 to-slate-900/80 backdrop-blur-xl shadow-2xl border-b border-white/10 glass'>
           <nav
             class='max-w-7xl mx-auto px-4 py-3 flex items-center justify-between'
             role='banner'
@@ -64,13 +83,15 @@ export default function Home(
               class='flex items-center space-x-3 hover:scale-105 transition-transform'
               aria-label='LOFERSIL home'
             >
-              <img
-                src='/static/images/interior.jpg'
-                alt={t('alt.storeInterior')}
-                class='w-10 h-10 rounded-full object-cover shadow-md'
-                loading='lazy'
-                decoding='async'
-              />
+               <img
+                 src='/static/images/interior.jpg'
+                 alt={t('alt.storeInterior') || 'LOFERSIL office supplies store interior'}
+                 class='w-10 h-10 rounded-full object-cover shadow-md'
+                 loading='lazy'
+                 decoding='async'
+                 width='40'
+                 height='40'
+               />
               <h1 class='text-xl md:text-2xl font-bold text-white tracking-wide drop-shadow-lg'>
                 LOFERSIL
               </h1>
@@ -78,29 +99,32 @@ export default function Home(
 
             {/* Navigation Links */}
             <div class='hidden md:flex space-x-8'>
-              <a
-                href='/products'
-                class='text-white hover:text-yellow-300 focus:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded-lg px-3 py-2 transition-all duration-300 hover:bg-white/10'
-              >
-                {t('nav.products')}
-              </a>
-              <a
-                href='/about'
-                class='text-white hover:text-yellow-300 focus:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded-lg px-3 py-2 transition-all duration-300 hover:bg-white/10'
-              >
-                {t('nav.about')}
-              </a>
-              <a
-                href='/contact'
-                class='text-white hover:text-yellow-300 focus:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 rounded-lg px-3 py-2 transition-all duration-300 hover:bg-white/10'
-              >
-                {t('nav.contact')}
-              </a>
+               <a
+                 href='/products'
+                 class='text-white hover:text-yellow-300 focus:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-slate-900 rounded-lg px-3 py-2 transition-all duration-300 hover:bg-white/10'
+               >
+                 {t('nav.products')}
+               </a>
+               <a
+                 href='/about'
+                 class='text-white hover:text-yellow-300 focus:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-slate-900 rounded-lg px-3 py-2 transition-all duration-300 hover:bg-white/10'
+               >
+                 {t('nav.about')}
+               </a>
+               <a
+                 href='/contact'
+                 class='text-white hover:text-yellow-300 focus:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-slate-900 rounded-lg px-3 py-2 transition-all duration-300 hover:bg-white/10'
+               >
+                 {t('nav.contact')}
+               </a>
             </div>
 
             <MobileMenu />
 
-            <LanguageSwitcher className='hidden md:flex' />
+            <div class='flex items-center space-x-4'>
+              <DarkModeToggle />
+              <LanguageSwitcher className='hidden md:flex' />
+            </div>
 
             {/* User Authentication */}
             <div class='flex space-x-3'>
@@ -136,16 +160,19 @@ export default function Home(
           </nav>
         </header>
 
-        {/* Hero Section */}
-        <section class='hero pt-32 pb-20 px-4 bg-gradient-to-br from-indigo-600 via-purple-600 to-blue-600 text-white relative overflow-hidden'>
+         {/* Hero Section */}
+         <main id='main-content'>
+         <section class='hero pt-32 pb-20 px-4 bg-gradient-to-br from-indigo-600 via-purple-600 to-blue-600 text-white relative overflow-hidden'>
           <div class='max-w-6xl mx-auto text-center'>
-            <img
-              src='https://api.figma.com/v1/images/F875oCto4aJIcTUUSfgHFC?ids=1669-162202&format=png'
-              alt={t('alt.officeIcon')}
-              class='w-32 h-32 mx-auto mb-8 rounded-full shadow-2xl border-4 border-white'
-              loading='lazy'
-              decoding='async'
-            />
+             <img
+               src='https://api.figma.com/v1/images/F875oCto4aJIcTUUSfgHFC?ids=1669-162202&format=png'
+               alt={t('alt.officeIcon') || 'Office workspace with modern office supplies and equipment'}
+               class='w-32 h-32 mx-auto mb-8 rounded-full shadow-2xl border-4 border-white'
+               loading='lazy'
+               decoding='async'
+               width='128'
+               height='128'
+             />
             <h1 class='text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 animate-bounce drop-shadow-2xl'>
               {t('hero.title')}
             </h1>
@@ -159,12 +186,18 @@ export default function Home(
                     <span class='text-lg md:text-xl bg-white bg-opacity-20 px-4 py-2 rounded-full'>
                       {t('hero.welcome').replace('{email}', user.email)}
                     </span>
-                    <Button
-                      onClick={() => count.value += 1}
-                      class='bg-yellow-500 hover:bg-yellow-600 text-black px-6 py-3 rounded-full font-bold shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105'
-                    >
-                      {t('hero.shopNow')}
-                    </Button>
+                     <Button
+                       onClick={() => count.value += 1}
+                       class='bg-yellow-500 hover:bg-yellow-600 dark:bg-yellow-400 dark:hover:bg-yellow-500 text-black dark:text-gray-900 px-6 py-3 rounded-full font-bold shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 group'
+                       aria-label={`${t('hero.shopNow')} - ${t('hero.title')}`}
+                     >
+                       <span class='inline-block transition-transform duration-300 group-hover:translate-x-1'>
+                         {t('hero.shopNow')}
+                       </span>
+                       <span class='inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1'>
+                         →
+                       </span>
+                     </Button>
                     <a
                       href='/logout'
                       class='bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full font-bold shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105'
@@ -174,19 +207,25 @@ export default function Home(
                   </>
                 )
                 : (
-                  <Button
-                    onClick={() => count.value += 1}
-                    class='bg-yellow-400 hover:bg-yellow-500 text-black px-6 py-3 rounded-full font-bold shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105'
-                  >
-                    {t('hero.getStarted')}
-                  </Button>
+                   <Button
+                     onClick={() => count.value += 1}
+                     class='bg-yellow-400 hover:bg-yellow-500 dark:bg-yellow-300 dark:hover:bg-yellow-400 text-black dark:text-gray-900 px-6 py-3 rounded-full font-bold shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 group'
+                     aria-label={`${t('hero.getStarted')} - ${t('hero.title')}`}
+                   >
+                     <span class='inline-block transition-transform duration-300 group-hover:translate-x-1'>
+                       {t('hero.getStarted')}
+                     </span>
+                     <span class='inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1'>
+                       →
+                     </span>
+                   </Button>
                 )}
             </div>
           </div>
         </section>
 
-        {/* Features Section */}
-        <section class='py-20 px-4 bg-gray-100'>
+         {/* Features Section */}
+         <section class='py-20 px-4 bg-gray-100 dark:bg-slate-800'>
           <div class='max-w-6xl mx-auto'>
             <h2 class='text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800'>
               {t('features.title') || 'Why Choose LOFERSIL?'}
@@ -228,13 +267,14 @@ export default function Home(
           <TestimonialsCarousel />
         </section>
 
-        {/* Product Showcase Section */}
-        <section class='py-20 px-4 bg-gray-50'>
-          <ProductShowcaseCarousel />
-        </section>
+         {/* Product Showcase Section */}
+         <section class='py-20 px-4 bg-gray-50 dark:bg-slate-900'>
+           <ProductShowcaseCarousel />
+         </section>
+         </main>
 
-        {/* Footer */}
-        <footer class='bg-slate-900 text-white py-12'>
+         {/* Footer */}
+         <footer id='footer' class='bg-slate-900 text-white py-12'>
           <div class='max-w-6xl mx-auto px-4'>
             <div class='grid grid-cols-1 md:grid-cols-3 gap-8'>
               <div>
@@ -274,19 +314,29 @@ export default function Home(
                 <p class='text-gray-300 mb-4'>
                   {t('footer.newsletterDesc') || 'Subscribe for updates and offers.'}
                 </p>
-                <form class='flex'>
-                  <input
-                    type='email'
-                    placeholder='Email'
-                    class='flex-1 px-3 py-2 rounded-l-lg text-black'
-                  />
-                  <button
-                    type='submit'
-                    class='bg-yellow-500 hover:bg-yellow-600 px-4 py-2 rounded-r-lg transition-colors'
-                  >
-                    {t('footer.subscribe') || 'Subscribe'}
-                  </button>
-                </form>
+                 <form class='flex' role='form' aria-label='Newsletter subscription'>
+                   <label for='newsletter-email' class='sr-only'>
+                     {t('footer.newsletterEmail') || 'Email address for newsletter'}
+                   </label>
+                   <input
+                     id='newsletter-email'
+                     type='email'
+                     placeholder={t('footer.newsletterEmailPlaceholder') || 'Enter your email'}
+                     class='flex-1 px-3 py-2 rounded-l-lg text-black focus:outline-none focus:ring-2 focus:ring-yellow-400'
+                     required
+                     aria-describedby='newsletter-help'
+                   />
+                   <div id='newsletter-help' class='sr-only'>
+                     {t('footer.newsletterDesc') || 'Subscribe for updates and offers.'}
+                   </div>
+                   <button
+                     type='submit'
+                     class='bg-yellow-500 hover:bg-yellow-600 px-4 py-2 rounded-r-lg transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2'
+                     aria-label={t('footer.subscribe') || 'Subscribe to newsletter'}
+                   >
+                     {t('footer.subscribe') || 'Subscribe'}
+                   </button>
+                 </form>
               </div>
             </div>
             <div class='border-t border-gray-700 mt-8 pt-8 text-center'>

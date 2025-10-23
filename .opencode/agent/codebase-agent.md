@@ -1,7 +1,7 @@
-<!-- ---
+---
 description: "TypeScript implementation agent for modular and functional development"
 mode: primary
-model: claude-4-sonnet
+model: code-supernova
 temperature: 0.1
 tools:
   read: true

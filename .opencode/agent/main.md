@@ -1,4 +1,4 @@
-<!-- ---
+---
 description: Main development agent for LOFERSIL Web Store, coordinating subagents and managing Deno + Fresh + Preact development tasks
 mode: primary
 subagents:
