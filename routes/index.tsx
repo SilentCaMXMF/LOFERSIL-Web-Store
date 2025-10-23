@@ -3,7 +3,7 @@ import { Head } from '$fresh/runtime.ts';
 import { getSession } from '../utils/session.ts';
 import { Button } from '../components/Button.tsx';
 import MobileMenu from '../islands/MobileMenu.tsx';
-import LanguageSwitcher from '../components/LanguageSwitcher.tsx';
+import LanguageSwitcher from '../islands/LanguageSwitcher.tsx';
 import TestimonialsCarousel from '../islands/TestimonialsCarousel.tsx';
 import ProductShowcaseCarousel from '../islands/ProductShowcaseCarousel.tsx';
 import { signal } from '@preact/signals';
