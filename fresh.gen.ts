@@ -14,6 +14,7 @@ import * as $login from './routes/login.tsx';
 import * as $logout from './routes/logout.ts';
 import * as $register from './routes/register.tsx';
 import * as $Counter from './islands/Counter.tsx';
+import * as $DarkModeToggle from './islands/DarkModeToggle.tsx';
 import * as $LanguageSwitcher from './islands/LanguageSwitcher.tsx';
 import * as $MobileMenu from './islands/MobileMenu.tsx';
 import * as $ProductCard from './islands/ProductCard.tsx';
@@ -37,6 +38,7 @@ const manifest = {
   },
   islands: {
     './islands/Counter.tsx': $Counter,
+    './islands/DarkModeToggle.tsx': $DarkModeToggle,
     './islands/LanguageSwitcher.tsx': $LanguageSwitcher,
     './islands/MobileMenu.tsx': $MobileMenu,
     './islands/ProductCard.tsx': $ProductCard,

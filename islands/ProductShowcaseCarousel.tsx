@@ -9,7 +9,7 @@ const featuredProducts: Product[] = [
     name: 'Premium Notebook',
     description: 'High-quality notebook for office use.',
     price: 15.99,
-    image: '/static/images/notebook.jpg', // Fallback if not exists
+    image: 'https://via.placeholder.com/300x200?text=Notebook',
     inventory: 100,
   },
   {
@@ -17,7 +17,7 @@ const featuredProducts: Product[] = [
     name: 'Ergonomic Chair',
     description: 'Comfortable chair for long work hours.',
     price: 299.99,
-    image: '/static/images/chair.jpg',
+    image: 'https://via.placeholder.com/300x200?text=Chair',
     inventory: 50,
   },
   {
@@ -25,7 +25,7 @@ const featuredProducts: Product[] = [
     name: 'Desk Organizer',
     description: 'Keep your desk tidy and organized.',
     price: 25.50,
-    image: '/static/images/organizer.jpg',
+    image: 'https://via.placeholder.com/300x200?text=Organizer',
     inventory: 200,
   },
 ];

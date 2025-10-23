@@ -8,7 +8,7 @@ const products: Product[] = [
     description:
       "Comfortable ergonomic office chair with adjustable height and lumbar support.",
     price: 199.99,
-    image: "/images/chair.jpg",
+    image: "https://via.placeholder.com/300x200?text=Chair",
     inventory: 50,
   },
   {
@@ -17,7 +17,7 @@ const products: Product[] = [
     description:
       "High-quality lined notebook, 200 pages, perfect for notes and sketches.",
     price: 9.99,
-    image: "/images/notebook.jpg",
+    image: "https://via.placeholder.com/300x200?text=Notebook",
     inventory: 200,
   },
   {
@@ -25,7 +25,7 @@ const products: Product[] = [
     name: "Printer Paper",
     description: "20 lb white printer paper, 500 sheets per ream.",
     price: 7.99,
-    image: "/images/paper.jpg",
+    image: "https://via.placeholder.com/300x200?text=Paper",
     inventory: 100,
   },
   {
@@ -34,7 +34,7 @@ const products: Product[] = [
     description:
       "LED desk lamp with adjustable brightness and USB charging port.",
     price: 49.99,
-    image: "/images/lamp.jpg",
+    image: "https://via.placeholder.com/300x200?text=Lamp",
     inventory: 30,
   },
   {
@@ -43,7 +43,7 @@ const products: Product[] = [
     description:
       "Heavy-duty stapler with 20-sheet capacity and refill staples.",
     price: 14.99,
-    image: "/images/stapler.jpg",
+    image: "https://via.placeholder.com/300x200?text=Stapler",
     inventory: 75,
   },
 ];

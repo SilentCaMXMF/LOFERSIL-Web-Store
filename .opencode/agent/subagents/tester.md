@@ -31,7 +31,7 @@ Responsibilities:
 - Use the Arrange-Act-Assert pattern for all tests.
 - Mock all external dependencies and API calls.
 - Ensure tests cover acceptance criteria, edge cases, and error handling.
-- Author and run bun tests for the code before handoff.
+- Author and run deno tests for the code before handoff.
 
 Workflow:
 

@@ -48,12 +48,12 @@ export default function Home(
           property='og:description'
           content={t('seo.description') || 'Discover high-quality office materials at LOFERSIL.'}
         />
-         <meta property='og:image' content='/static/images/interior.jpg' />
+          <meta property='og:image' content='https://via.placeholder.com/400x300' />
          <meta property='og:image:width' content='1200' />
          <meta property='og:image:height' content='630' />
          <meta property='og:image:alt' content={t('alt.storeInterior')} />
          <meta name='twitter:card' content='summary_large_image' />
-         <link rel='preload' as='image' href='/static/images/interior.jpg' />
+          <link rel='preload' as='image' href='https://via.placeholder.com/400x300' />
       </Head>
        <div class='min-h-screen bg-gray-50 dark:bg-slate-900'>
          {/* Skip Links for Accessibility */}
@@ -84,7 +84,7 @@ export default function Home(
               aria-label='LOFERSIL home'
             >
                <img
-                 src='/static/images/interior.jpg'
+                 src='https://via.placeholder.com/400x300'
                  alt={t('alt.storeInterior') || 'LOFERSIL office supplies store interior'}
                  class='w-10 h-10 rounded-full object-cover shadow-md'
                  loading='lazy'

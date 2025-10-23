@@ -8,12 +8,16 @@ export default function DarkModeToggle() {
 
   useEffect(() => {
     // Check for saved theme preference or default to light mode
-    const savedTheme = localStorage.getItem('theme');
-    const prefersDark = globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (typeof localStorage !== 'undefined') {
+      const savedTheme = localStorage.getItem('theme');
+      const prefersDark = typeof globalThis.matchMedia !== 'undefined' && globalThis.matchMedia('(prefers-color-scheme: dark)').matches;
 
-    if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
-      isDarkMode.value = true;
-      document.documentElement.classList.add('dark');
+      if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
+        isDarkMode.value = true;
+        if (typeof document !== 'undefined') {
+          document.documentElement.classList.add('dark');
+        }
+      }
     }
 
     setMounted(true);
@@ -23,12 +27,15 @@ export default function DarkModeToggle() {
     const newDarkMode = !isDarkMode.value;
     isDarkMode.value = newDarkMode;
 
-    if (newDarkMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
+    if (typeof document !== 'undefined') {
+      if (newDarkMode) {
+        document.documentElement.classList.add('dark');
+      } else {
+        document.documentElement.classList.remove('dark');
+      }
+    }
+    if (typeof localStorage !== 'undefined') {
+      localStorage.setItem('theme', newDarkMode ? 'dark' : 'light');
     }
   };
 
