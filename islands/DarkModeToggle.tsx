@@ -1,10 +1,11 @@
-import { useState, useEffect } from 'preact/hooks';
+import { useState, useEffect, useRef } from 'preact/hooks';
 import { signal } from '@preact/signals';
 
 export const isDarkMode = signal(false);
 
 export default function DarkModeToggle() {
   const [mounted, setMounted] = useState(false);
+  const documentRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     // Check for saved theme preference or default to light mode
@@ -14,8 +15,9 @@ export default function DarkModeToggle() {
 
       if (savedTheme === 'dark' || (!savedTheme && prefersDark)) {
         isDarkMode.value = true;
-        if (typeof document !== 'undefined') {
-          document.documentElement.classList.add('dark');
+        if (typeof document !== 'undefined' && document.documentElement) {
+          documentRef.current = document.documentElement;
+          documentRef.current.classList.add('dark');
         }
       }
     }
@@ -27,11 +29,11 @@ export default function DarkModeToggle() {
     const newDarkMode = !isDarkMode.value;
     isDarkMode.value = newDarkMode;
 
-    if (typeof document !== 'undefined') {
+    if (documentRef.current) {
       if (newDarkMode) {
-        document.documentElement.classList.add('dark');
+        documentRef.current.classList.add('dark');
       } else {
-        document.documentElement.classList.remove('dark');
+        documentRef.current.classList.remove('dark');
       }
     }
     if (typeof localStorage !== 'undefined') {
