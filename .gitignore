@@ -10,7 +10,7 @@
 
 # Fresh build output
 _fresh/
-static/
+static/css/*.map
 
 # IDE specific
 .vscode/
