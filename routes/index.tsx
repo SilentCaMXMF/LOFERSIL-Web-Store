@@ -1,13 +1,7 @@
 import { Handlers, PageProps } from '$fresh/server.ts';
 import { Head } from '$fresh/runtime.ts';
 import { getSession } from '../utils/session.ts';
-import { Button } from '../components/Button.tsx';
-import MobileMenu from '../islands/MobileMenu.tsx';
 import LanguageSwitcher from '../islands/LanguageSwitcher.tsx';
-import DarkModeToggle from '../islands/DarkModeToggle.tsx';
-import TestimonialsCarousel from '../islands/TestimonialsCarousel.tsx';
-import ProductShowcaseCarousel from '../islands/ProductShowcaseCarousel.tsx';
-import { signal } from '@preact/signals';
 import { t } from '../utils/i18n.ts';
 
 export const handler: Handlers = {
@@ -30,7 +24,7 @@ export default function Home(
   { data }: PageProps<{ user: { email: string; role: string } | null }>,
 ) {
   const { user } = data;
-  const count = signal(0);
+
   return (
     <>
       <Head>
@@ -48,299 +42,301 @@ export default function Home(
           property='og:description'
           content={t('seo.description') || 'Discover high-quality office materials at LOFERSIL.'}
         />
-          <meta property='og:image' content='https://via.placeholder.com/400x300' />
-         <meta property='og:image:width' content='1200' />
-         <meta property='og:image:height' content='630' />
-         <meta property='og:image:alt' content={t('alt.storeInterior')} />
-         <meta name='twitter:card' content='summary_large_image' />
-          <link rel='preload' as='image' href='https://via.placeholder.com/400x300' />
+        <meta property='og:image' content='https://via.placeholder.com/400x300' />
+        <meta property='og:image:width' content='1200' />
+        <meta property='og:image:height' content='630' />
+        <meta property='og:image:alt' content={t('alt.storeInterior')} />
+        <meta name='twitter:card' content='summary_large_image' />
+        <link rel='preload' as='image' href='https://via.placeholder.com/400x300' />
       </Head>
-       <div class='min-h-screen bg-gray-50 dark:bg-slate-900'>
-         {/* Skip Links for Accessibility */}
-         <a
-           href='#main-content'
-           class='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded z-50 focus:outline-none focus:ring-2 focus:ring-blue-400'
-         >
-           Skip to main content
-         </a>
-         <a
-           href='#footer'
-           class='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-32 bg-blue-600 text-white px-4 py-2 rounded z-50 focus:outline-none focus:ring-2 focus:ring-blue-400'
-         >
-           Skip to footer
-         </a>
 
-         {/* Fixed Header */}
-         <header class='fixed top-0 left-0 right-0 z-50 bg-gradient-to-r from-slate-900/80 via-slate-800/80 to-slate-900/80 backdrop-blur-xl shadow-2xl border-b border-white/10 glass'>
-          <nav
-            class='max-w-7xl mx-auto px-4 py-3 flex items-center justify-between'
-            role='banner'
-            aria-label='Main site navigation'
-          >
-            {/* Logo/Store Image */}
-            <a
-              href='/'
-              class='flex items-center space-x-3 hover:scale-105 transition-transform'
-              aria-label='LOFERSIL home'
-            >
-               <img
-                 src='https://via.placeholder.com/400x300'
-                 alt={t('alt.storeInterior') || 'LOFERSIL office supplies store interior'}
-                 class='w-10 h-10 rounded-full object-cover shadow-md'
-                 loading='lazy'
-                 decoding='async'
-                 width='40'
-                 height='40'
-               />
-              <h1 class='text-xl md:text-2xl font-bold text-white tracking-wide drop-shadow-lg'>
-                LOFERSIL
-              </h1>
+      <div class='min-h-screen bg-white'>
+        {/* Skip Links for Accessibility */}
+        <a
+          href='#main-content'
+          class='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-blue-600 text-white px-4 py-2 rounded z-50'
+        >
+          Skip to main content
+        </a>
+        <a
+          href='#footer'
+          class='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-32 bg-blue-600 text-white px-4 py-2 rounded z-50'
+        >
+          Skip to footer
+        </a>
+
+        {/* Simple Header */}
+        <header class='fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200'>
+          <nav class='max-w-7xl mx-auto px-4 py-4 flex items-center justify-between'>
+            {/* Logo */}
+            <a href='/' class='flex items-center space-x-3'>
+              <img
+                src='https://via.placeholder.com/400x300'
+                alt={t('alt.storeInterior') || 'LOFERSIL office supplies store interior'}
+                class='w-8 h-8 rounded-full'
+                width='32'
+                height='32'
+              />
+              <h1 class='text-xl font-bold text-gray-900'>LOFERSIL</h1>
             </a>
 
-            {/* Navigation Links */}
-            <div class='hidden md:flex space-x-8'>
-               <a
-                 href='/products'
-                 class='text-white hover:text-yellow-300 focus:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-slate-900 rounded-lg px-3 py-2 transition-all duration-300 hover:bg-white/10'
-               >
-                 {t('nav.products')}
-               </a>
-               <a
-                 href='/about'
-                 class='text-white hover:text-yellow-300 focus:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-slate-900 rounded-lg px-3 py-2 transition-all duration-300 hover:bg-white/10'
-               >
-                 {t('nav.about')}
-               </a>
-               <a
-                 href='/contact'
-                 class='text-white hover:text-yellow-300 focus:text-yellow-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-slate-900 rounded-lg px-3 py-2 transition-all duration-300 hover:bg-white/10'
-               >
-                 {t('nav.contact')}
-               </a>
-            </div>
-
-            <MobileMenu />
-
-            <div class='flex items-center space-x-4'>
-              <DarkModeToggle />
-              <LanguageSwitcher className='hidden md:flex' />
-            </div>
+            {/* Language Switcher */}
+            <LanguageSwitcher />
 
             {/* User Authentication */}
-            <div class='flex space-x-3'>
-              {user
-                ? (
-                  <>
-                    <span class='text-white text-sm hidden sm:inline bg-slate-700 px-3 py-1 rounded-full'>
-                      {t('hero.welcome').replace('{email}', user.email)}
-                    </span>
-                    <a
-                      href='/account'
-                      class='bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105'
-                    >
-                      {t('hero.account')}
-                    </a>
-                    <a
-                      href='/logout'
-                      class='bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105'
-                    >
-                      {t('hero.logout')}
-                    </a>
-                  </>
-                )
-                : (
+            <div class='flex items-center space-x-4'>
+              {user ? (
+                <div class='flex items-center space-x-3'>
+                  <span class='text-sm text-gray-600'>{user.email}</span>
                   <a
-                    href='/login'
-                    class='bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105'
+                    href='/logout'
+                    class='text-sm text-gray-900 hover:text-gray-600'
                   >
-                    {t('hero.login')}
+                    {t('hero.logout')}
                   </a>
-                )}
+                </div>
+              ) : (
+                <a
+                  href='/login'
+                  class='text-sm text-gray-900 hover:text-gray-600'
+                >
+                  {t('hero.login')}
+                </a>
+              )}
             </div>
           </nav>
         </header>
 
-         {/* Hero Section */}
-         <main id='main-content'>
-         <section class='hero pt-32 pb-20 px-4 bg-gradient-to-br from-indigo-600 via-purple-600 to-blue-600 text-white relative overflow-hidden'>
-          <div class='max-w-6xl mx-auto text-center'>
-             <img
-               src='https://api.figma.com/v1/images/F875oCto4aJIcTUUSfgHFC?ids=1669-162202&format=png'
-               alt={t('alt.officeIcon') || 'Office workspace with modern office supplies and equipment'}
-               class='w-32 h-32 mx-auto mb-8 rounded-full shadow-2xl border-4 border-white'
-               loading='lazy'
-               decoding='async'
-               width='128'
-               height='128'
-             />
-            <h1 class='text-3xl md:text-5xl lg:text-6xl font-extrabold mb-6 animate-bounce drop-shadow-2xl'>
-              {t('hero.title')}
-            </h1>
-            <p class='text-lg md:text-xl lg:text-2xl opacity-90 mb-8 leading-relaxed'>
-              {t('hero.subtitle')}
-            </p>
-            <div class='flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-6'>
-              {user
-                ? (
-                  <>
-                    <span class='text-lg md:text-xl bg-white bg-opacity-20 px-4 py-2 rounded-full'>
-                      {t('hero.welcome').replace('{email}', user.email)}
-                    </span>
-                     <Button
-                       onClick={() => count.value += 1}
-                       class='bg-yellow-500 hover:bg-yellow-600 dark:bg-yellow-400 dark:hover:bg-yellow-500 text-black dark:text-gray-900 px-6 py-3 rounded-full font-bold shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 group'
-                       aria-label={`${t('hero.shopNow')} - ${t('hero.title')}`}
-                     >
-                       <span class='inline-block transition-transform duration-300 group-hover:translate-x-1'>
-                         {t('hero.shopNow')}
-                       </span>
-                       <span class='inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1'>
-                         →
-                       </span>
-                     </Button>
-                    <a
-                      href='/logout'
-                      class='bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-full font-bold shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105'
-                    >
-                      {t('hero.logout')}
-                    </a>
-                  </>
-                )
-                : (
-                   <Button
-                     onClick={() => count.value += 1}
-                     class='bg-yellow-400 hover:bg-yellow-500 dark:bg-yellow-300 dark:hover:bg-yellow-400 text-black dark:text-gray-900 px-6 py-3 rounded-full font-bold shadow-lg transition-all duration-300 hover:shadow-2xl hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-300 focus:ring-offset-2 group'
-                     aria-label={`${t('hero.getStarted')} - ${t('hero.title')}`}
-                   >
-                     <span class='inline-block transition-transform duration-300 group-hover:translate-x-1'>
-                       {t('hero.getStarted')}
-                     </span>
-                     <span class='inline-block ml-2 transition-transform duration-300 group-hover:translate-x-1'>
-                       →
-                     </span>
-                   </Button>
-                )}
-            </div>
-          </div>
-        </section>
+        {/* Main Content */}
+        <main id='main-content' class='pt-16'>
+          {/* About Section */}
+          <section class='py-20 px-4'>
+            <div class='max-w-4xl mx-auto'>
+              <div class='text-center mb-16'>
+                <h2 class='text-3xl md:text-4xl font-bold text-gray-900 mb-6'>
+                  {t('about.title') || 'About LOFERSIL'}
+                </h2>
+                <p class='text-lg text-gray-600 leading-relaxed max-w-2xl mx-auto'>
+                  {t('about.description') || 'LOFERSIL is your trusted partner for premium office supplies. We provide high-quality materials and expert support to help your business thrive.'}
+                </p>
+              </div>
 
-         {/* Features Section */}
-         <section class='py-20 px-4 bg-gray-100 dark:bg-slate-800'>
-          <div class='max-w-6xl mx-auto'>
-            <h2 class='text-3xl md:text-4xl font-bold text-center mb-12 text-gray-800'>
-              {t('features.title') || 'Why Choose LOFERSIL?'}
-            </h2>
-            <div class='grid grid-cols-1 md:grid-cols-3 gap-8'>
-              <div class='text-center p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow'>
-                <div class='text-4xl mb-4'>📦</div>
-                <h3 class='text-xl font-semibold mb-2'>
-                  {t('features.quality') || 'High Quality Products'}
-                </h3>
-                <p class='text-gray-600'>
-                  {t('features.qualityDesc') || 'Premium office supplies for your business needs.'}
-                </p>
+              <div class='grid grid-cols-1 md:grid-cols-3 gap-8 mb-16'>
+                <div class='text-center p-6'>
+                  <div class='text-4xl mb-4'>📦</div>
+                  <h3 class='text-xl font-semibold text-gray-900 mb-3'>
+                    {t('about.quality.title') || 'Premium Quality'}
+                  </h3>
+                  <p class='text-gray-600'>
+                    {t('about.quality.description') || 'We source only the finest office supplies to ensure your business operates at peak efficiency.'}
+                  </p>
+                </div>
+
+                <div class='text-center p-6'>
+                  <div class='text-4xl mb-4'>🚚</div>
+                  <h3 class='text-xl font-semibold text-gray-900 mb-3'>
+                    {t('about.delivery.title') || 'Fast Delivery'}
+                  </h3>
+                  <p class='text-gray-600'>
+                    {t('about.delivery.description') || 'Quick and reliable shipping ensures you get what you need, when you need it.'}
+                  </p>
+                </div>
+
+                <div class='text-center p-6'>
+                  <div class='text-4xl mb-4'>💼</div>
+                  <h3 class='text-xl font-semibold text-gray-900 mb-3'>
+                    {t('about.support.title') || 'Expert Support'}
+                  </h3>
+                  <p class='text-gray-600'>
+                    {t('about.support.description') || 'Our knowledgeable team is here to help with any questions or special requirements.'}
+                  </p>
+                </div>
               </div>
-              <div class='text-center p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow'>
-                <div class='text-4xl mb-4'>🚚</div>
-                <h3 class='text-xl font-semibold mb-2'>
-                  {t('features.delivery') || 'Fast Delivery'}
+
+              <div class='text-center'>
+                <h3 class='text-2xl font-semibold text-gray-900 mb-6'>
+                  {t('about.mission.title') || 'Our Mission'}
                 </h3>
-                <p class='text-gray-600'>
-                  {t('features.deliveryDesc') || 'Quick and reliable shipping to your location.'}
-                </p>
-              </div>
-              <div class='text-center p-6 bg-white rounded-lg shadow-lg hover:shadow-xl transition-shadow'>
-                <div class='text-4xl mb-4'>💼</div>
-                <h3 class='text-xl font-semibold mb-2'>
-                  {t('features.support') || 'Expert Support'}
-                </h3>
-                <p class='text-gray-600'>
-                  {t('features.supportDesc') || 'Professional assistance for all your queries.'}
+                <p class='text-lg text-gray-600 leading-relaxed max-w-3xl mx-auto'>
+                  {t('about.mission.description') || 'To empower businesses with the tools they need to succeed. We believe that the right office supplies can make all the difference in productivity and success.'}
                 </p>
               </div>
             </div>
-          </div>
-        </section>
+          </section>
 
-        {/* Testimonials Section */}
-        <section class='py-20 px-4 bg-white'>
-          <TestimonialsCarousel />
-        </section>
-
-         {/* Product Showcase Section */}
-         <section class='py-20 px-4 bg-gray-50 dark:bg-slate-900'>
-           <ProductShowcaseCarousel />
-         </section>
-         </main>
-
-         {/* Footer */}
-         <footer id='footer' class='bg-slate-900 text-white py-12'>
-          <div class='max-w-6xl mx-auto px-4'>
-            <div class='grid grid-cols-1 md:grid-cols-3 gap-8'>
-              <div>
-                <h3 class='text-xl font-bold mb-4'>LOFERSIL</h3>
-                <p class='text-gray-300'>
-                  {t('footer.description') || 'Your trusted partner for office supplies.'}
-                </p>
-              </div>
-              <div>
-                <h3 class='text-xl font-bold mb-4'>{t('footer.links') || 'Quick Links'}</h3>
-                <ul class='space-y-2'>
-                  <li>
-                    <a
-                      href='/products'
-                      class='text-gray-300 hover:text-yellow-300 transition-colors'
+          {/* Contact Section */}
+          <section class='py-20 px-4 bg-gray-50'>
+            <div class='max-w-4xl mx-auto'>
+              <h2 class='text-3xl font-bold text-gray-900 text-center mb-8'>
+                {t('contact.title') || 'Contact Us'}
+              </h2>
+              <div class='grid grid-cols-1 md:grid-cols-2 gap-8'>
+                <div>
+                  <h3 class='text-xl font-semibold text-gray-900 mb-4'>
+                    {t('contact.subtitle') || 'Get in Touch'}
+                  </h3>
+                  <p class='text-gray-600 mb-4'>{t('contact.email') || 'Email: info@lofersil.com'}</p>
+                  <p class='text-gray-600 mb-4'>{t('contact.phone') || 'Phone: +1 (555) 123-4567'}</p>
+                  <p class='text-gray-600'>{t('contact.address') || 'Address: 123 Office Street, Business City'}</p>
+                </div>
+                <div>
+                  <form class='space-y-4' action='/api/contact' method='post'>
+                    <div>
+                      <label for='name' class='block text-sm font-medium text-gray-700 mb-1'>
+                        {t('contact.form.name') || 'Name'}
+                      </label>
+                      <input
+                        type='text'
+                        id='name'
+                        name='name'
+                        placeholder={t('contact.form.name.placeholder') || 'Your full name'}
+                        class='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500'
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label for='email' class='block text-sm font-medium text-gray-700 mb-1'>
+                        {t('contact.form.email') || 'Email'}
+                      </label>
+                      <input
+                        type='email'
+                        id='email'
+                        name='email'
+                        placeholder={t('contact.form.email.placeholder') || 'your.email@example.com'}
+                        class='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500'
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label for='message' class='block text-sm font-medium text-gray-700 mb-1'>
+                        {t('contact.form.message') || 'Message'}
+                      </label>
+                      <textarea
+                        id='message'
+                        name='message'
+                        rows={4}
+                        placeholder={t('contact.form.message.placeholder') || 'How can we help you?'}
+                        class='w-full px-3 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-500'
+                        required
+                      ></textarea>
+                    </div>
+                    <button
+                      type='submit'
+                      class='w-full bg-gray-900 text-white py-2 px-4 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-500 transition-colors'
                     >
-                      {t('nav.products')}
-                    </a>
-                  </li>
-                  <li>
-                    <a href='/about' class='text-gray-300 hover:text-yellow-300 transition-colors'>
-                      {t('nav.about')}
-                    </a>
-                  </li>
-                  <li>
-                    <a
-                      href='/contact'
-                      class='text-gray-300 hover:text-yellow-300 transition-colors'
-                    >
-                      {t('nav.contact')}
-                    </a>
-                  </li>
-                </ul>
-              </div>
-              <div>
-                <h3 class='text-xl font-bold mb-4'>{t('footer.newsletter') || 'Newsletter'}</h3>
-                <p class='text-gray-300 mb-4'>
-                  {t('footer.newsletterDesc') || 'Subscribe for updates and offers.'}
-                </p>
-                 <form class='flex' role='form' aria-label='Newsletter subscription'>
-                   <label for='newsletter-email' class='sr-only'>
-                     {t('footer.newsletterEmail') || 'Email address for newsletter'}
-                   </label>
-                   <input
-                     id='newsletter-email'
-                     type='email'
-                     placeholder={t('footer.newsletterEmailPlaceholder') || 'Enter your email'}
-                     class='flex-1 px-3 py-2 rounded-l-lg text-black focus:outline-none focus:ring-2 focus:ring-yellow-400'
-                     required
-                     aria-describedby='newsletter-help'
-                   />
-                   <div id='newsletter-help' class='sr-only'>
-                     {t('footer.newsletterDesc') || 'Subscribe for updates and offers.'}
-                   </div>
-                   <button
-                     type='submit'
-                     class='bg-yellow-500 hover:bg-yellow-600 px-4 py-2 rounded-r-lg transition-colors focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2'
-                     aria-label={t('footer.subscribe') || 'Subscribe to newsletter'}
-                   >
-                     {t('footer.subscribe') || 'Subscribe'}
-                   </button>
-                 </form>
+                      {t('contact.form.send') || 'Send Message'}
+                    </button>
+                  </form>
+                </div>
               </div>
             </div>
-            <div class='border-t border-gray-700 mt-8 pt-8 text-center'>
-              <p class='text-gray-400'>
+          </section>
+
+          {/* Google Maps Style Testimonials */}
+          <section class='py-20 px-4 bg-white'>
+            <div class='max-w-4xl mx-auto'>
+              <h2 class='text-3xl font-bold text-gray-900 text-center mb-12'>
+                {t('testimonials.title') || 'Customer Reviews'}
+              </h2>
+              <div class='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6'>
+                <div class='bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow'>
+                  <div class='flex items-center justify-between mb-3'>
+                    <div class='flex text-yellow-400'>
+                      {'★'.repeat(5)}
+                    </div>
+                    <span class='text-xs text-gray-500'>2 weeks ago</span>
+                  </div>
+                  <p class='text-gray-700 mb-4 text-sm leading-relaxed'>
+                    "{t('testimonials.review1') || 'Excellent quality and fast delivery! Highly recommend LOFERSIL for all office needs.'}"
+                  </p>
+                  <div class='flex items-center'>
+                    <div class='w-8 h-8 bg-gray-300 rounded-full mr-3 flex items-center justify-center text-gray-600 text-xs font-semibold'>
+                      AS
+                    </div>
+                    <div>
+                      <p class='font-semibold text-gray-900 text-sm'>
+                        {t('testimonials.name1') || 'Ana Silva'}
+                      </p>
+                      <p class='text-xs text-gray-500'>
+                        {t('testimonials.role1') || 'Office Manager'}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class='bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow'>
+                  <div class='flex items-center justify-between mb-3'>
+                    <div class='flex text-yellow-400'>
+                      {'★'.repeat(5)}
+                    </div>
+                    <span class='text-xs text-gray-500'>1 month ago</span>
+                  </div>
+                  <p class='text-gray-700 mb-4 text-sm leading-relaxed'>
+                    "{t('testimonials.review2') || 'Great support team and premium products. Exactly what our business needed.'}"
+                  </p>
+                  <div class='flex items-center'>
+                    <div class='w-8 h-8 bg-gray-300 rounded-full mr-3 flex items-center justify-center text-gray-600 text-xs font-semibold'>
+                      CM
+                    </div>
+                    <div>
+                      <p class='font-semibold text-gray-900 text-sm'>
+                        {t('testimonials.name2') || 'Carlos Mendes'}
+                      </p>
+                      <p class='text-xs text-gray-500'>
+                        {t('testimonials.role2') || 'Business Owner'}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div class='bg-white p-6 rounded-lg border border-gray-200 shadow-sm hover:shadow-md transition-shadow'>
+                  <div class='flex items-center justify-between mb-3'>
+                    <div class='flex text-yellow-400'>
+                      {'★'.repeat(5)}
+                    </div>
+                    <span class='text-xs text-gray-500'>3 weeks ago</span>
+                  </div>
+                  <p class='text-gray-700 mb-4 text-sm leading-relaxed'>
+                    "{t('testimonials.review3') || 'Affordable prices for top-quality office supplies. Very satisfied with the service.'}"
+                  </p>
+                  <div class='flex items-center'>
+                    <div class='w-8 h-8 bg-gray-300 rounded-full mr-3 flex items-center justify-center text-gray-600 text-xs font-semibold'>
+                      MS
+                    </div>
+                    <div>
+                      <p class='font-semibold text-gray-900 text-sm'>
+                        {t('testimonials.name3') || 'Maria Santos'}
+                      </p>
+                      <p class='text-xs text-gray-500'>
+                        {t('testimonials.role3') || 'HR Director'}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </main>
+
+        {/* Simple Footer */}
+        <footer id='footer' class='bg-gray-900 text-white py-8'>
+          <div class='max-w-7xl mx-auto px-4'>
+            <div class='flex flex-col md:flex-row justify-between items-center'>
+              <div class='mb-4 md:mb-0'>
+                <h3 class='text-lg font-bold'>LOFERSIL</h3>
+                <p class='text-gray-400 text-sm'>Your trusted partner for office supplies.</p>
+              </div>
+              <div class='flex space-x-6'>
+                <a href='/about' class='text-gray-400 hover:text-white text-sm'>
+                  {t('nav.about')}
+                </a>
+                <a href='/contact' class='text-gray-400 hover:text-white text-sm'>
+                  {t('nav.contact')}
+                </a>
+              </div>
+            </div>
+            <div class='border-t border-gray-700 mt-6 pt-6 text-center'>
+              <p class='text-gray-400 text-sm'>
                 {t('footer.copyright')}
               </p>
             </div>

@@ -1,76 +1,84 @@
 {
-  "build_id": "e39a187f5e689c629f84512bf3757ca4612ce428",
+  "build_id": "fe5c6b4c8d00cd232a55dd3992a769a275f00f49",
   "files": {
+    "island-productshowcasecarousel.js": [
+      "chunk-QULB3XQJ.js",
+      "chunk-Y6G3KXI5.js",
+      "chunk-RDSY5TMS.js",
+      "chunk-R54PQP4Z.js",
+      "chunk-SUKGOB56.js",
+      "chunk-7KZRW4CE.js"
+    ],
+    "island-testimonialscarousel.js": [
+      "chunk-QULB3XQJ.js",
+      "chunk-RDSY5TMS.js",
+      "chunk-R54PQP4Z.js",
+      "chunk-SUKGOB56.js",
+      "chunk-7KZRW4CE.js"
+    ],
     "main.js": [
-      "chunk-MZDY3QIN.js",
-      "chunk-GI7LLYGM.js",
-      "chunk-V66ALGLP.js"
+      "chunk-47KGKZAR.js",
+      "chunk-7KZRW4CE.js"
     ],
     "deserializer.js": [],
     "signals.js": [
-      "chunk-563H7MCX.js",
-      "chunk-GI7LLYGM.js",
-      "chunk-DQ6WAFCB.js",
-      "chunk-V66ALGLP.js"
+      "chunk-RDSY5TMS.js",
+      "chunk-SUKGOB56.js",
+      "chunk-7KZRW4CE.js"
     ],
     "island-counter.js": [
-      "chunk-MZDY3QIN.js",
-      "chunk-GI7LLYGM.js",
-      "chunk-MEABNXAK.js",
-      "chunk-DQ6WAFCB.js",
-      "chunk-V66ALGLP.js"
+      "chunk-47KGKZAR.js",
+      "chunk-R54PQP4Z.js",
+      "chunk-SUKGOB56.js",
+      "chunk-7KZRW4CE.js"
     ],
-    "chunk-MZDY3QIN.js": [],
+    "chunk-47KGKZAR.js": [],
+    "island-darkmodetoggle.js": [
+      "chunk-RDSY5TMS.js",
+      "chunk-R54PQP4Z.js",
+      "chunk-SUKGOB56.js",
+      "chunk-7KZRW4CE.js"
+    ],
+    "island-languageswitcher.js": [
+      "chunk-QULB3XQJ.js",
+      "chunk-RDSY5TMS.js",
+      "chunk-R54PQP4Z.js",
+      "chunk-SUKGOB56.js",
+      "chunk-7KZRW4CE.js"
+    ],
     "island-mobilemenu.js": [
-      "chunk-Y3V3WHS6.js",
-      "chunk-563H7MCX.js",
-      "chunk-GI7LLYGM.js",
-      "chunk-MEABNXAK.js",
-      "chunk-DQ6WAFCB.js",
-      "chunk-V66ALGLP.js"
+      "chunk-QULB3XQJ.js",
+      "chunk-RDSY5TMS.js",
+      "chunk-R54PQP4Z.js",
+      "chunk-SUKGOB56.js",
+      "chunk-7KZRW4CE.js"
+    ],
+    "chunk-QULB3XQJ.js": [
+      "chunk-RDSY5TMS.js"
     ],
     "island-productcard.js": [
-      "chunk-J7NWIMTA.js",
-      "chunk-MEABNXAK.js",
-      "chunk-DQ6WAFCB.js",
-      "chunk-V66ALGLP.js"
+      "chunk-Y6G3KXI5.js",
+      "chunk-RDSY5TMS.js",
+      "chunk-R54PQP4Z.js",
+      "chunk-SUKGOB56.js",
+      "chunk-7KZRW4CE.js"
     ],
-    "island-productshowcasecarousel.js": [
-      "chunk-J7NWIMTA.js",
-      "chunk-Y3V3WHS6.js",
-      "chunk-563H7MCX.js",
-      "chunk-GI7LLYGM.js",
-      "chunk-MEABNXAK.js",
-      "chunk-DQ6WAFCB.js",
-      "chunk-V66ALGLP.js"
+    "chunk-Y6G3KXI5.js": [
+      "chunk-RDSY5TMS.js",
+      "chunk-R54PQP4Z.js",
+      "chunk-SUKGOB56.js"
     ],
-    "chunk-J7NWIMTA.js": [
-      "chunk-MEABNXAK.js",
-      "chunk-DQ6WAFCB.js"
+    "chunk-RDSY5TMS.js": [
+      "chunk-SUKGOB56.js",
+      "chunk-7KZRW4CE.js"
     ],
-    "island-testimonialscarousel.js": [
-      "chunk-Y3V3WHS6.js",
-      "chunk-563H7MCX.js",
-      "chunk-GI7LLYGM.js",
-      "chunk-MEABNXAK.js",
-      "chunk-DQ6WAFCB.js",
-      "chunk-V66ALGLP.js"
+    "chunk-R54PQP4Z.js": [
+      "chunk-7KZRW4CE.js"
     ],
-    "chunk-Y3V3WHS6.js": [
-      "chunk-563H7MCX.js"
+    "chunk-SUKGOB56.js": [
+      "chunk-7KZRW4CE.js"
     ],
-    "chunk-563H7MCX.js": [
-      "chunk-DQ6WAFCB.js",
-      "chunk-V66ALGLP.js"
-    ],
-    "chunk-GI7LLYGM.js": [],
-    "chunk-MEABNXAK.js": [
-      "chunk-V66ALGLP.js"
-    ],
-    "chunk-DQ6WAFCB.js": [
-      "chunk-V66ALGLP.js"
-    ],
-    "chunk-V66ALGLP.js": [],
+    "chunk-7KZRW4CE.js": [],
     "metafile.json": []
   }
 }
